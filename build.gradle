@@ -1,0 +1,21 @@
+plugins {
+    id 'java-library'
+    id 'idea'
+    id 'eclipse'
+}
+
+dependencies {
+    // This dependency is used internally, and not exposed to consumers on their own compile classpath.
+    implementation 'org.apache.commons:commons-lang3:3.8'
+
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.mockito:mockito-core:2.21.0'
+    testImplementation 'org.assertj:assertj-core:3.11.1'
+    testImplementation 'net.serenity-bdd:serenity-core:1.9.43'
+    testImplementation 'net.serenity-bdd:serenity-jbehave:1.42.0'
+    testImplementation 'org.seleniumhq.selenium:selenium-htmlunit-driver:2.52.0' // <= only needed to satisfy serenity-jbehave
+}
+
+repositories {
+    jcenter()
+}
