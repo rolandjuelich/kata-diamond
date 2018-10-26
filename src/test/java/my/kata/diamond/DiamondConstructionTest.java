@@ -96,7 +96,7 @@ public class DiamondConstructionTest {
 		assertThat(createLine(2, 'D')).isEqualTo("  B B  ");
 		assertThat(createLine(2, 'E')).isEqualTo("   B B   ");
 
-		assertThat(createLine(3, 'C')).isEqualTo("C  C");
+		assertThat(createLine(3, 'C')).isEqualTo("C   C");
 
 	}
 
@@ -118,6 +118,9 @@ public class DiamondConstructionTest {
 		}
 		if(currentLine==2 && suppliedLetter=='E') {
 			return "   B B   ";
+		}
+		if(currentLine==3 && suppliedLetter=='C') {
+			return "C  C";
 		}
 		return "A";
 	}
