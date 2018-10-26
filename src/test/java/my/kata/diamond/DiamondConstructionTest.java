@@ -71,20 +71,20 @@ public class DiamondConstructionTest {
 
 	@Test
 	public void calculateInnerWhitespaces() {
-		assertThat(innerWhitespacesFor('A')).isEqualTo(0);
-
-		assertThat(innerWhitespacesFor('B')).isEqualTo(1);
-		assertThat(innerWhitespacesFor('B')).isEqualTo(1);
-		assertThat(innerWhitespacesFor('B')).isEqualTo(1);
-
-		assertThat(innerWhitespacesFor('C')).isEqualTo(3);
-		assertThat(innerWhitespacesFor('C')).isEqualTo(3);
-		assertThat(innerWhitespacesFor('C')).isEqualTo(3);
-
-		assertThat(innerWhitespacesFor('D')).isEqualTo(5);
-		assertThat(innerWhitespacesFor('D')).isEqualTo(5);
-
-		assertThat(innerWhitespacesFor('E')).isEqualTo(7);
+		assertThat(innerWhitespacesFor('A')).isEqualTo(0); // 0 0
+															//
+		assertThat(innerWhitespacesFor('B')).isEqualTo(1); // 1 0
+		assertThat(innerWhitespacesFor('B')).isEqualTo(1); //
+		assertThat(innerWhitespacesFor('B')).isEqualTo(1); //
+															//
+		assertThat(innerWhitespacesFor('C')).isEqualTo(3); // 2 1
+		assertThat(innerWhitespacesFor('C')).isEqualTo(3); //
+		assertThat(innerWhitespacesFor('C')).isEqualTo(3); //
+															//
+		assertThat(innerWhitespacesFor('D')).isEqualTo(5); // 3 2
+		assertThat(innerWhitespacesFor('D')).isEqualTo(5); //
+															//
+		assertThat(innerWhitespacesFor('E')).isEqualTo(7); // 4 3
 	}
 
 	@Test
@@ -110,48 +110,48 @@ public class DiamondConstructionTest {
 	}
 
 	private String createLine(int currentLine, char suppliedLetter) {
-		if(currentLine==1 && suppliedLetter=='B') {
+		if (currentLine == 1 && suppliedLetter == 'B') {
 			return " A ";
 		}
-		if(currentLine==1 && suppliedLetter=='C') {
+		if (currentLine == 1 && suppliedLetter == 'C') {
 			return "  A  ";
 		}
-		if(currentLine==2 && suppliedLetter=='B') {
+		if (currentLine == 2 && suppliedLetter == 'B') {
 			return "B B";
 		}
-		if(currentLine==2 && suppliedLetter=='C') {
+		if (currentLine == 2 && suppliedLetter == 'C') {
 			return " B B ";
 		}
-		if(currentLine==2 && suppliedLetter=='D') {
+		if (currentLine == 2 && suppliedLetter == 'D') {
 			return "  B B  ";
 		}
-		if(currentLine==2 && suppliedLetter=='E') {
+		if (currentLine == 2 && suppliedLetter == 'E') {
 			return "   B B   ";
 		}
-		if(currentLine==3 && suppliedLetter=='C') {
+		if (currentLine == 3 && suppliedLetter == 'C') {
 			return "C   C";
 		}
-		if(currentLine==3 && suppliedLetter=='D') {
+		if (currentLine == 3 && suppliedLetter == 'D') {
 			return " C   C ";
 		}
-		if(currentLine==3 && suppliedLetter=='E') {
+		if (currentLine == 3 && suppliedLetter == 'E') {
 			return "  C   C  ";
 		}
-		if(currentLine==4 && suppliedLetter=='D') {
+		if (currentLine == 4 && suppliedLetter == 'D') {
 			return "D     D";
 		}
-		if(currentLine==4 && suppliedLetter=='E') {
+		if (currentLine == 4 && suppliedLetter == 'E') {
 			return " D     D ";
 		}
-		if(currentLine==5 && suppliedLetter=='E') {
+		if (currentLine == 5 && suppliedLetter == 'E') {
 			return "E       E";
 		}
 		return "A";
 	}
 
 	private int innerWhitespacesFor(char current) {
-		return allowedLetters().indexOf(current) < 2 ? allowedLetters().indexOf(current)
-				: allowedLetters().indexOf(current) + 1;
+		return allowedLetters().indexOf(current) == 0 ? 0
+				: allowedLetters().indexOf(current) + allowedLetters().indexOf(current) - 1;
 	}
 
 	private int leadingWhitespacesFor(char current, char supplied) {
