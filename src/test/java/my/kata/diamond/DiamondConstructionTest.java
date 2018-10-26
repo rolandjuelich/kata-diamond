@@ -86,31 +86,8 @@ public class DiamondConstructionTest {
 	}
 
 	private int innerWhitespacesFor(char current, char supplied) {
-		if (current == 'B' && supplied == 'C') {
-			return 1;
-		}
-		if (current == 'B' && supplied == 'D') {
-			return 1;
-		}
-		if (current == 'B' && supplied == 'E') {
-			return 1;
-		}
-		if (current == 'C' && supplied == 'C') {
-			return 3;
-		}
-		if (current == 'C' && supplied == 'D') {
-			return 3;
-		}
-		if (current == 'C' && supplied == 'E') {
-			return 3;
-		}
-		if (current == 'D' && supplied == 'D') {
-			return 4;
-		}
-		if (current == 'D' && supplied == 'E') {
-			return 4;
-		}
-		return 0;
+		return allowedLetters().indexOf(current) < 2 ? allowedLetters().indexOf(current)
+				: allowedLetters().indexOf(current) + 1;
 	}
 
 	private int leadingWhitespacesFor(char current, char supplied) {
