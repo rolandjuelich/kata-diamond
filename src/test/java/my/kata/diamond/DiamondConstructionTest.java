@@ -24,6 +24,20 @@ public class DiamondConstructionTest {
 			// TODO Auto-generated constructor stub
 		}
 
+		@Override
+		public String toString() {
+			return new StringBuilder()
+					.append("    A    ").append("\n")
+					.append("   B B   ").append("\n")
+					.append("  C   C  ").append("\n")
+					.append(" D     D ").append("\n")
+					.append("E       E").append("\n")
+					.append(" D     D ").append("\n")
+					.append("  C   C  ").append("\n")
+					.append("   B B   ").append("\n")
+					.append("    A    ").toString();
+		}
+		
 	}
 
 	@Test
