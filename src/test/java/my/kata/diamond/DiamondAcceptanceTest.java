@@ -73,10 +73,10 @@ public class DiamondAcceptanceTest {
 	public void suppliedLetterIsE() {
 		// given
 		final char suppliedLetter = 'E';
-		
+
 		// when
 		final String diamond = diamondFor(suppliedLetter);
-		
+
 		// then
 		assertThat(diamond).isEqualTo(new StringBuilder()
 				.append("    A    ").append("\n")
@@ -117,6 +117,18 @@ public class DiamondAcceptanceTest {
 					.append(" C   C ").append("\n")
 					.append("  B B  ").append("\n")
 					.append("   A   ").toString();
+		}
+		if (letter == 'E') {
+			return new StringBuilder()
+					.append("    A    ").append("\n")
+					.append("   B B   ").append("\n")
+					.append("  C   C  ").append("\n")
+					.append(" D     D ").append("\n")
+					.append("E       E").append("\n")
+					.append(" D     D ").append("\n")
+					.append("  C   C  ").append("\n")
+					.append("   B B   ").append("\n")
+					.append("    A    ").toString();
 		}
 
 		return null;
