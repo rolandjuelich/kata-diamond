@@ -1,7 +1,6 @@
 package my.kata.diamond;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.*;
 
 import org.junit.Test;
 
@@ -92,7 +91,7 @@ public class DiamondConstructionTest {
 
 	}
 
-	private String createLine(int i, char c) {
+	private String createLine(int currentLine, char suppliedLetter) {
 		return "A";
 	}
 
