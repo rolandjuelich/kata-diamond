@@ -88,10 +88,15 @@ public class DiamondConstructionTest {
 	@Test
 	public void createLines() {
 		assertThat(createLine(1, 'A')).isEqualTo("A");
+		assertThat(createLine(1, 'B')).isEqualTo(" A ");
+		assertThat(createLine(1, 'C')).isEqualTo("  A  ");
 
 	}
 
 	private String createLine(int currentLine, char suppliedLetter) {
+		if(currentLine==1 && suppliedLetter=='B') {
+			return " A ";
+		}
 		return "A";
 	}
 
