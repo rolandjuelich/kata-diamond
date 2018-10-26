@@ -73,7 +73,7 @@ public class DiamondConstructionTest {
 	public void calculateInnerWhitespaces(){
 		assertThat(innerWhitespacesFor('A','A')).isEqualTo(0);
 
-		assertThat(innerWhitespacesFor('B','A')).isEqualTo(1);
+		assertThat(innerWhitespacesFor('B','C')).isEqualTo(1);
 	}
 	
 	private int innerWhitespacesFor(char current, char supplied) {
