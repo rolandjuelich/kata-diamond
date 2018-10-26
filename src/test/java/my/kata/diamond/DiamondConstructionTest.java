@@ -49,6 +49,7 @@ public class DiamondConstructionTest {
 	@Test
 	public void calculateLeadingWhitespaces(){
 		assertThat(leadingWhitespacesFor('A','A')).isEqualTo(0);
+		assertThat(leadingWhitespacesFor('A','B')).isEqualTo(1);
 	}
 	
 	private int leadingWhitespacesFor(char current, char supplied) {
