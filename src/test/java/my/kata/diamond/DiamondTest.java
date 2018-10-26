@@ -18,6 +18,21 @@ public class DiamondTest {
 		assertThat(actualDiamond).isEqualTo("A");
 	}
 
+	@Test
+	public void suppliedLetterIsB() {
+		// given
+		final char suppliedLetter = 'B';
+
+		// when
+		final String actualDiamond = diamondFor(suppliedLetter);
+
+		// then
+		assertThat(actualDiamond).isEqualTo(new StringBuilder()
+				.append(" A ").append("\n")
+				.append("B B").append("\n")
+				.append(" A ").toString());
+	}
+
 	private String diamondFor(char c) {
 		return "A";
 	}
