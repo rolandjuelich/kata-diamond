@@ -74,6 +74,10 @@ public class DiamondConstructionTest {
 		assertThat(innerWhitespacesFor('A','A')).isEqualTo(0);
 	}
 	
+	private int innerWhitespacesFor(char current, char supplied) {
+		return 0;
+	}
+
 	private int leadingWhitespacesFor(char current, char supplied) {
 		return allowedLetters().indexOf(supplied) - allowedLetters().indexOf(current);
 	}
