@@ -19,6 +19,7 @@ public class DiamondConstructionTest {
 	@Test
 	public void defineAllowedLetters() {
 		assertThat(allowedLetters().charAt(0)).isEqualTo('A');
+		assertThat(allowedLetters().charAt(1)).isEqualTo('B');
 	}
 
 	private String allowedLetters() {
