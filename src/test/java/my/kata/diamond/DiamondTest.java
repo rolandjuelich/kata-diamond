@@ -8,7 +8,14 @@ public class DiamondTest {
 
 	@Test
 	public void suppliedLetterIsA() {
-		assertThat(diamondFor('A')).isEqualTo("A");
+		// given
+		final char suppliedLetter = 'A';
+
+		// when
+		final String actualDiamond = diamondFor(suppliedLetter);
+
+		// then
+		assertThat(actualDiamond).isEqualTo("A");
 	}
 
 	private String diamondFor(char c) {
