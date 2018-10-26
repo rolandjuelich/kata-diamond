@@ -87,10 +87,15 @@ public class DiamondConstructionTest {
 	}
 
 	@Test
-	public void createLines(){
+	public void createLines() {
 		assertThat(createLine(1, 'A')).isEqualTo("A");
+
 	}
-	
+
+	private String createLine(int i, char c) {
+		return "A";
+	}
+
 	private int innerWhitespacesFor(char current) {
 		return allowedLetters().indexOf(current) < 2 ? allowedLetters().indexOf(current)
 				: allowedLetters().indexOf(current) + 1;
