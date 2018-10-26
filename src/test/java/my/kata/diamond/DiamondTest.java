@@ -34,7 +34,17 @@ public class DiamondTest {
 	}
 
 	private String diamondFor(char c) {
-		return "A";
+		if (c == 'A') {
+			return "A";
+		}
+		if (c == 'B') {
+			return new StringBuilder()
+					.append(" A ").append("\n")
+					.append("B B").append("\n")
+					.append(" A ").toString();
+		}
+
+		return null;
 	}
 
 }
