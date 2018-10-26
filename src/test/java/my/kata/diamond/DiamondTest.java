@@ -33,6 +33,23 @@ public class DiamondTest {
 				.append(" A ").toString());
 	}
 
+	@Test
+	public void suppliedLetterIsC() {
+		// given
+		final char suppliedLetter = 'C';
+		
+		// when
+		final String actualDiamond = diamondFor(suppliedLetter);
+		
+		// then
+		assertThat(actualDiamond).isEqualTo(new StringBuilder()
+				.append("  A  ").append("\n")
+				.append(" B B ").append("\n")
+				.append("C   C").append("\n")
+				.append(" B B ").append("\n")
+				.append("  A  ").toString());
+	}
+
 	private String diamondFor(char letter) {
 		if (letter == 'A') {
 			return "A";
