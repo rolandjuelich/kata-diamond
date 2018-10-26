@@ -77,6 +77,9 @@ public class DiamondConstructionTest {
 	}
 	
 	private int innerWhitespacesFor(char current, char supplied) {
+		if(current =='B' && supplied == 'A') {
+			return 1;
+		}
 		return 0;
 	}
 
