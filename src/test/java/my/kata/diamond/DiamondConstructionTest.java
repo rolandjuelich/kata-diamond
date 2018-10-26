@@ -100,6 +100,8 @@ public class DiamondConstructionTest {
 		assertThat(createLine(3, 'D')).isEqualTo(" C   C ");
 		assertThat(createLine(3, 'E')).isEqualTo("  C   C  ");
 
+		assertThat(createLine(4, 'D')).isEqualTo("D     D");
+
 	}
 
 	private String createLine(int currentLine, char suppliedLetter) {
