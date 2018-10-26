@@ -8,25 +8,12 @@ import org.junit.Test;
 
 public class DiamondConstructionTest {
 
-	/*
-		 * Rules: ------
-		 * 
-		 * 1. possible letters are a list of characters with defined order and a zero
-		 * based index 2. number of leading or trailing whitespaces is equal to the
-		 * difference of the indices between A and supplied letter 3. number of inner
-		 * whitespaces is index of current letter +1 or 0 if current letter is 'A'
-		 * 
-		 */
-
 	public class Diamond {
 
-		public Diamond(char suppliedLetter) {
-			// TODO Auto-generated constructor stub
-		}
+		private final String value;
 
-		@Override
-		public String toString() {
-			return new StringBuilder()
+		public Diamond(char suppliedLetter) {
+			this.value = new StringBuilder()
 					.append("    A    ").append("\n")
 					.append("   B B   ").append("\n")
 					.append("  C   C  ").append("\n")
@@ -37,7 +24,12 @@ public class DiamondConstructionTest {
 					.append("   B B   ").append("\n")
 					.append("    A    ").toString();
 		}
-		
+
+		@Override
+		public String toString() {
+			return value;
+		}
+
 	}
 
 	@Test
