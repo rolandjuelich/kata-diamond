@@ -53,6 +53,7 @@ public class DiamondConstructionTest {
 		assertThat(leadingWhitespacesFor('B','C')).isEqualTo(1);
 		assertThat(leadingWhitespacesFor('B','D')).isEqualTo(2);
 		assertThat(leadingWhitespacesFor('A','C')).isEqualTo(2);
+		assertThat(leadingWhitespacesFor('C','E')).isEqualTo(2);
 		assertThat(leadingWhitespacesFor('C','D')).isEqualTo(1);
 	}
 	
