@@ -1,6 +1,7 @@
 package my.kata.diamond;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 
@@ -85,6 +86,11 @@ public class DiamondConstructionTest {
 		assertThat(innerWhitespacesFor('D')).isEqualTo(4);
 	}
 
+	@Test
+	public void createLines(){
+		assertThat(createLine(1, 'A')).isEqualTo("A");
+	}
+	
 	private int innerWhitespacesFor(char current) {
 		return allowedLetters().indexOf(current) < 2 ? allowedLetters().indexOf(current)
 				: allowedLetters().indexOf(current) + 1;
