@@ -18,7 +18,7 @@ public class DiamondConstructionTest {
 	
 	@Test
 	public void defineAllowedLetters() {
-		assertThat(allowedLetters()).isInstanceOf(String.class);
+		assertThat(allowedLetters().charAt(0)).isEqualTo('A');
 	}
 
 	private String allowedLetters() {
