@@ -132,6 +132,9 @@ public class DiamondConstructionTest {
 		if(currentLine==3 && suppliedLetter=='E') {
 			return "  C   C  ";
 		}
+		if(currentLine==4 && suppliedLetter=='D') {
+			return "D     D";
+		}
 		return "A";
 	}
 
