@@ -71,21 +71,21 @@ public class DiamondConstructionTest {
 
 	@Test
 	public void calculateInnerWhitespaces() {
-		assertThat(innerWhitespacesFor('A', 'A')).isEqualTo(0);
+		assertThat(innerWhitespacesFor('A')).isEqualTo(0);
 
-		assertThat(innerWhitespacesFor('B', 'C')).isEqualTo(1);
-		assertThat(innerWhitespacesFor('B', 'D')).isEqualTo(1);
-		assertThat(innerWhitespacesFor('B', 'E')).isEqualTo(1);
+		assertThat(innerWhitespacesFor('B')).isEqualTo(1);
+		assertThat(innerWhitespacesFor('B')).isEqualTo(1);
+		assertThat(innerWhitespacesFor('B')).isEqualTo(1);
 
-		assertThat(innerWhitespacesFor('C', 'C')).isEqualTo(3);
-		assertThat(innerWhitespacesFor('C', 'D')).isEqualTo(3);
-		assertThat(innerWhitespacesFor('C', 'E')).isEqualTo(3);
+		assertThat(innerWhitespacesFor('C')).isEqualTo(3);
+		assertThat(innerWhitespacesFor('C')).isEqualTo(3);
+		assertThat(innerWhitespacesFor('C')).isEqualTo(3);
 
-		assertThat(innerWhitespacesFor('D', 'D')).isEqualTo(4);
-		assertThat(innerWhitespacesFor('D', 'E')).isEqualTo(4);
+		assertThat(innerWhitespacesFor('D')).isEqualTo(4);
+		assertThat(innerWhitespacesFor('D')).isEqualTo(4);
 	}
 
-	private int innerWhitespacesFor(char current, char supplied) {
+	private int innerWhitespacesFor(char current) {
 		return allowedLetters().indexOf(current) < 2 ? allowedLetters().indexOf(current)
 				: allowedLetters().indexOf(current) + 1;
 	}
