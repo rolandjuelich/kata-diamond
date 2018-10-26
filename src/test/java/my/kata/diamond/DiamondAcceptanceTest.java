@@ -91,47 +91,7 @@ public class DiamondAcceptanceTest {
 	}
 
 	private String diamondFor(char letter) {
-		if (letter == 'A') {
-			return "A";
-		}
-		if (letter == 'B') {
-			return new StringBuilder()
-					.append(" A ").append("\n")
-					.append("B B").append("\n")
-					.append(" A ").toString();
-		}
-		if (letter == 'C') {
-			return new StringBuilder()
-					.append("  A  ").append("\n")
-					.append(" B B ").append("\n")
-					.append("C   C").append("\n")
-					.append(" B B ").append("\n")
-					.append("  A  ").toString();
-		}
-		if (letter == 'D') {
-			return new StringBuilder()
-					.append("   A   ").append("\n")
-					.append("  B B  ").append("\n")
-					.append(" C   C ").append("\n")
-					.append("D     D").append("\n")
-					.append(" C   C ").append("\n")
-					.append("  B B  ").append("\n")
-					.append("   A   ").toString();
-		}
-		if (letter == 'E') {
-			return new StringBuilder()
-					.append("    A    ").append("\n")
-					.append("   B B   ").append("\n")
-					.append("  C   C  ").append("\n")
-					.append(" D     D ").append("\n")
-					.append("E       E").append("\n")
-					.append(" D     D ").append("\n")
-					.append("  C   C  ").append("\n")
-					.append("   B B   ").append("\n")
-					.append("    A    ").toString();
-		}
-
-		return null;
+		return new Diamond(letter).toString();
 	}
 
 }
