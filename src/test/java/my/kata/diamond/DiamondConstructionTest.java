@@ -1,6 +1,6 @@
 package my.kata.diamond;
 
-import static org.junit.Assert.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.Test;
 
@@ -19,5 +19,9 @@ public class DiamondConstructionTest {
 	@Test
 	public void defineAllowedLetters() {
 		assertThat(allowedLetters()).isInstanceOf(String.class);
+	}
+
+	private String allowedLetters() {
+		return "";
 	}
 }
