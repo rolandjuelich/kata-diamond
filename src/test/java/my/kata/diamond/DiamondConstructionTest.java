@@ -76,6 +76,8 @@ public class DiamondConstructionTest {
 		assertThat(innerWhitespacesFor('B','C')).isEqualTo(1);
 		assertThat(innerWhitespacesFor('B','D')).isEqualTo(1);
 		assertThat(innerWhitespacesFor('B','E')).isEqualTo(1);
+
+		assertThat(innerWhitespacesFor('C','C')).isEqualTo(3);
 	}
 	
 	private int innerWhitespacesFor(char current, char supplied) {
