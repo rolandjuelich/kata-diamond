@@ -12,7 +12,7 @@ public class DiamondTest {
 	}
 
 	private String diamondFor(char c) {
-		return "";
+		return "A";
 	}
 
 }
