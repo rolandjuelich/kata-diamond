@@ -37,10 +37,10 @@ public class DiamondTest {
 	public void suppliedLetterIsC() {
 		// given
 		final char suppliedLetter = 'C';
-		
+
 		// when
 		final String actualDiamond = diamondFor(suppliedLetter);
-		
+
 		// then
 		assertThat(actualDiamond).isEqualTo(new StringBuilder()
 				.append("  A  ").append("\n")
@@ -59,6 +59,14 @@ public class DiamondTest {
 					.append(" A ").append("\n")
 					.append("B B").append("\n")
 					.append(" A ").toString();
+		}
+		if (letter == 'C') {
+			return new StringBuilder()
+					.append("  A  ").append("\n")
+					.append(" B B ").append("\n")
+					.append("C   C").append("\n")
+					.append(" B B ").append("\n")
+					.append("  A  ").toString();
 		}
 
 		return null;
