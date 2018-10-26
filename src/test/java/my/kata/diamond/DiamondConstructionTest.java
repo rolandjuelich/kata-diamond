@@ -70,37 +70,7 @@ public class DiamondConstructionTest {
 	}
 	
 	private int leadingWhitespacesFor(char current, char supplied) {
-		if(current=='A' && supplied=='B') {
-			return 1;
-		}
-		if(current=='D' && supplied=='E') {
-			return 1;
-		}
-		if(current=='A' && supplied=='C') {
-			return 2;
-		}
-		if(current=='B' && supplied=='C') {
-			return 1;
-		}
-		if(current=='B' && supplied=='D') {
-			return 2;
-		}
-		if(current=='C' && supplied=='D') {
-			return 1;
-		}
-		if(current=='C' && supplied=='E') {
-			return 2;
-		}
-		if(current=='A' && supplied=='D') {
-			return 3;
-		}
-		if(current=='B' && supplied=='E') {
-			return 3;
-		}
-		if(current=='A' && supplied=='E') {
-			return 4;
-		}
-		return 0;
+		return allowedLetters().indexOf(supplied) - allowedLetters().indexOf(current);
 	}
 
 	private String allowedLetters() {
