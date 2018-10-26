@@ -46,6 +46,11 @@ public class DiamondConstructionTest {
 		assertThat(allowedLetters().charAt(25)).isEqualTo('Z');
 	}
 
+	@Test
+	public void calculateLeadingWhitespaces(){
+		assertThat(leadingWhitespacesFor('A','A')).isEqualTo(0);
+	}
+	
 	private String allowedLetters() {
 		return "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	}
