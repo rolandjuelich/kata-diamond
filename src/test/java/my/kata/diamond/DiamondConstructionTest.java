@@ -7,15 +7,15 @@ import org.junit.Test;
 public class DiamondConstructionTest {
 
 	/*
-	 * 	Rules:
-	 * 	------
+	 * Rules: ------
 	 * 
-	 * 		1. possible letters are a list of characters with defined order and a zero based index
-	 *		2. number of leading or trailing whitespaces is equal to the difference of the indices between A and supplied letter
-	 *		3. number of inner whitespaces is index of current letter +1 or 0 if current letter is 'A'
+	 * 1. possible letters are a list of characters with defined order and a zero
+	 * based index 2. number of leading or trailing whitespaces is equal to the
+	 * difference of the indices between A and supplied letter 3. number of inner
+	 * whitespaces is index of current letter +1 or 0 if current letter is 'A'
 	 * 
 	 */
-	
+
 	@Test
 	public void defineAllowedLetters() {
 		assertThat(allowedLetters().charAt(0)).isEqualTo('A');
@@ -47,65 +47,67 @@ public class DiamondConstructionTest {
 	}
 
 	@Test
-	public void calculateLeadingWhitespaces(){
-		assertThat(leadingWhitespacesFor('A','A')).isEqualTo(0);
-		assertThat(leadingWhitespacesFor('B','B')).isEqualTo(0);
-		assertThat(leadingWhitespacesFor('C','C')).isEqualTo(0);
-		assertThat(leadingWhitespacesFor('D','D')).isEqualTo(0);
-		assertThat(leadingWhitespacesFor('E','E')).isEqualTo(0);
-		
-		assertThat(leadingWhitespacesFor('A','B')).isEqualTo(1);
-		assertThat(leadingWhitespacesFor('B','C')).isEqualTo(1);
-		assertThat(leadingWhitespacesFor('C','D')).isEqualTo(1);
-		assertThat(leadingWhitespacesFor('D','E')).isEqualTo(1);
+	public void calculateLeadingWhitespaces() {
+		assertThat(leadingWhitespacesFor('A', 'A')).isEqualTo(0);
+		assertThat(leadingWhitespacesFor('B', 'B')).isEqualTo(0);
+		assertThat(leadingWhitespacesFor('C', 'C')).isEqualTo(0);
+		assertThat(leadingWhitespacesFor('D', 'D')).isEqualTo(0);
+		assertThat(leadingWhitespacesFor('E', 'E')).isEqualTo(0);
 
-		assertThat(leadingWhitespacesFor('B','D')).isEqualTo(2);
-		assertThat(leadingWhitespacesFor('A','C')).isEqualTo(2);
-		assertThat(leadingWhitespacesFor('C','E')).isEqualTo(2);
+		assertThat(leadingWhitespacesFor('A', 'B')).isEqualTo(1);
+		assertThat(leadingWhitespacesFor('B', 'C')).isEqualTo(1);
+		assertThat(leadingWhitespacesFor('C', 'D')).isEqualTo(1);
+		assertThat(leadingWhitespacesFor('D', 'E')).isEqualTo(1);
 
-		assertThat(leadingWhitespacesFor('A','D')).isEqualTo(3);
-		assertThat(leadingWhitespacesFor('B','E')).isEqualTo(3);
+		assertThat(leadingWhitespacesFor('B', 'D')).isEqualTo(2);
+		assertThat(leadingWhitespacesFor('A', 'C')).isEqualTo(2);
+		assertThat(leadingWhitespacesFor('C', 'E')).isEqualTo(2);
 
-		assertThat(leadingWhitespacesFor('A','E')).isEqualTo(4);
+		assertThat(leadingWhitespacesFor('A', 'D')).isEqualTo(3);
+		assertThat(leadingWhitespacesFor('B', 'E')).isEqualTo(3);
+
+		assertThat(leadingWhitespacesFor('A', 'E')).isEqualTo(4);
 	}
 
 	@Test
-	public void calculateInnerWhitespaces(){
-		assertThat(innerWhitespacesFor('A','A')).isEqualTo(0);
+	public void calculateInnerWhitespaces() {
+		assertThat(innerWhitespacesFor('A', 'A')).isEqualTo(0);
 
-		assertThat(innerWhitespacesFor('B','C')).isEqualTo(1);
-		assertThat(innerWhitespacesFor('B','D')).isEqualTo(1);
-		assertThat(innerWhitespacesFor('B','E')).isEqualTo(1);
+		assertThat(innerWhitespacesFor('B', 'C')).isEqualTo(1);
+		assertThat(innerWhitespacesFor('B', 'D')).isEqualTo(1);
+		assertThat(innerWhitespacesFor('B', 'E')).isEqualTo(1);
 
-		assertThat(innerWhitespacesFor('C','C')).isEqualTo(3);
-		assertThat(innerWhitespacesFor('C','D')).isEqualTo(3);
-		assertThat(innerWhitespacesFor('C','E')).isEqualTo(3);
+		assertThat(innerWhitespacesFor('C', 'C')).isEqualTo(3);
+		assertThat(innerWhitespacesFor('C', 'D')).isEqualTo(3);
+		assertThat(innerWhitespacesFor('C', 'E')).isEqualTo(3);
 
-		assertThat(innerWhitespacesFor('D','D')).isEqualTo(4);
+		assertThat(innerWhitespacesFor('D', 'D')).isEqualTo(4);
+		assertThat(innerWhitespacesFor('D', 'E')).isEqualTo(4);
 	}
-	
+
 	private int innerWhitespacesFor(char current, char supplied) {
-		if(current =='B' && supplied == 'C') {
+		if (current == 'B' && supplied == 'C') {
 			return 1;
 		}
-		if(current =='B' && supplied == 'D') {
+		if (current == 'B' && supplied == 'D') {
 			return 1;
 		}
-		if(current =='B' && supplied == 'E') {
+		if (current == 'B' && supplied == 'E') {
 			return 1;
 		}
-		if(current =='C' && supplied == 'C') {
+		if (current == 'C' && supplied == 'C') {
 			return 3;
 		}
-		if(current =='C' && supplied == 'D') {
+		if (current == 'C' && supplied == 'D') {
 			return 3;
 		}
-		if(current =='C' && supplied == 'E') {
+		if (current == 'C' && supplied == 'E') {
 			return 3;
 		}
-		if(current =='D' && supplied == 'D') {
+		if (current == 'D' && supplied == 'D') {
 			return 4;
 		}
+		
 		return 0;
 	}
 
