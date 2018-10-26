@@ -97,6 +97,7 @@ public class DiamondConstructionTest {
 		assertThat(createLine(2, 'E')).isEqualTo("   B B   ");
 
 		assertThat(createLine(3, 'C')).isEqualTo("C   C");
+		assertThat(createLine(3, 'D')).isEqualTo(" C   C ");
 
 	}
 
