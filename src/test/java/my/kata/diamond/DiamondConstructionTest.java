@@ -68,6 +68,11 @@ public class DiamondConstructionTest {
 
 		assertThat(leadingWhitespacesFor('A','E')).isEqualTo(4);
 	}
+
+	@Test
+	public void calculateInnerWhitespaces(){
+		assertThat(innerWhitespacesFor('A','A')).isEqualTo(0);
+	}
 	
 	private int leadingWhitespacesFor(char current, char supplied) {
 		return allowedLetters().indexOf(supplied) - allowedLetters().indexOf(current);
