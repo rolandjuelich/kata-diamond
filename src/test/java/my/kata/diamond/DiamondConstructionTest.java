@@ -107,7 +107,9 @@ public class DiamondConstructionTest {
 		if (current == 'D' && supplied == 'D') {
 			return 4;
 		}
-		
+		if (current == 'D' && supplied == 'E') {
+			return 4;
+		}
 		return 0;
 	}
 
