@@ -84,6 +84,9 @@ public class DiamondConstructionTest {
 		if(current=='A' && supplied=='D') {
 			return 3;
 		}
+		if(current=='B' && supplied=='E') {
+			return 3;
+		}
 		return 0;
 	}
 
