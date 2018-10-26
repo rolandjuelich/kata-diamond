@@ -12,10 +12,10 @@ public class DiamondAcceptanceTest {
 		final char suppliedLetter = 'A';
 
 		// when
-		final String actualDiamond = diamondFor(suppliedLetter);
+		final String diamond = diamondFor(suppliedLetter);
 
 		// then
-		assertThat(actualDiamond).isEqualTo("A");
+		assertThat(diamond).isEqualTo("A");
 	}
 
 	@Test
@@ -24,10 +24,10 @@ public class DiamondAcceptanceTest {
 		final char suppliedLetter = 'B';
 
 		// when
-		final String actualDiamond = diamondFor(suppliedLetter);
+		final String diamond = diamondFor(suppliedLetter);
 
 		// then
-		assertThat(actualDiamond).isEqualTo(new StringBuilder()
+		assertThat(diamond).isEqualTo(new StringBuilder()
 				.append(" A ").append("\n")
 				.append("B B").append("\n")
 				.append(" A ").toString());
@@ -39,10 +39,10 @@ public class DiamondAcceptanceTest {
 		final char suppliedLetter = 'C';
 
 		// when
-		final String actualDiamond = diamondFor(suppliedLetter);
+		final String diamond = diamondFor(suppliedLetter);
 
 		// then
-		assertThat(actualDiamond).isEqualTo(new StringBuilder()
+		assertThat(diamond).isEqualTo(new StringBuilder()
 				.append("  A  ").append("\n")
 				.append(" B B ").append("\n")
 				.append("C   C").append("\n")
