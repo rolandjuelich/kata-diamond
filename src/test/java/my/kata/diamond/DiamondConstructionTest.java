@@ -47,6 +47,6 @@ public class DiamondConstructionTest {
 	}
 
 	private String allowedLetters() {
-		return "AB";
+		return "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	}
 }
