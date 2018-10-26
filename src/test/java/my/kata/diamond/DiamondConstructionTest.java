@@ -23,6 +23,6 @@ public class DiamondConstructionTest {
 	}
 
 	private String allowedLetters() {
-		return "A";
+		return "AB";
 	}
 }
