@@ -33,11 +33,11 @@ public class DiamondTest {
 				.append(" A ").toString());
 	}
 
-	private String diamondFor(char c) {
-		if (c == 'A') {
+	private String diamondFor(char letter) {
+		if (letter == 'A') {
 			return "A";
 		}
-		if (c == 'B') {
+		if (letter == 'B') {
 			return new StringBuilder()
 					.append(" A ").append("\n")
 					.append("B B").append("\n")
