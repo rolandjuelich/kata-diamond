@@ -53,6 +53,9 @@ public class DiamondConstructionTest {
 	}
 	
 	private int leadingWhitespacesFor(char current, char supplied) {
+		if(current=='A' && supplied=='B') {
+			return 1;
+		}
 		return 0;
 	}
 
