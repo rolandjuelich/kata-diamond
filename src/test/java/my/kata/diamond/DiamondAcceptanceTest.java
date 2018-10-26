@@ -50,6 +50,25 @@ public class DiamondAcceptanceTest {
 				.append("  A  ").toString());
 	}
 
+	@Test
+	public void suppliedLetterIsD() {
+		// given
+		final char suppliedLetter = 'D';
+		
+		// when
+		final String diamond = diamondFor(suppliedLetter);
+		
+		// then
+		assertThat(diamond).isEqualTo(new StringBuilder()
+				.append("   A   ").append("\n")
+				.append("  B B  ").append("\n")
+				.append(" C   C ").append("\n")
+				.append("D     D").append("\n")
+				.append(" C   C ").append("\n")
+				.append("  B B  ").append("\n")
+				.append("   A   ").toString());
+	}
+
 	private String diamondFor(char letter) {
 		if (letter == 'A') {
 			return "A";
