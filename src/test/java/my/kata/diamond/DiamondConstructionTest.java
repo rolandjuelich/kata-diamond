@@ -120,7 +120,7 @@ public class DiamondConstructionTest {
 			return "   B B   ";
 		}
 		if(currentLine==3 && suppliedLetter=='C') {
-			return "C  C";
+			return "C   C";
 		}
 		return "A";
 	}
