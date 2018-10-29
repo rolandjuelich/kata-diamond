@@ -50,23 +50,20 @@ public class DiamondTest {
 		if (letter == 'B') {
 			String lineA = " A ";
 			String lineB = "B B";
-			return join(asList(lineA,lineB,lineA),'\n');
+			return join(asList(lineA, lineB, lineA), '\n');
 		}
 		if (letter == 'C') {
 			String lineA = "  A  ";
 			String lineB = " B B ";
 			String lineC = "C   C";
-			return join(asList(lineA,lineB,lineC, lineB, lineA),'\n');
+			return join(asList(lineA, lineB, lineC, lineB, lineA), '\n');
 		}
 		if (letter == 'D') {
-			return new StringBuilder()
-					.append("   A   ").append("\n")
-					.append("  B B  ").append("\n")
-					.append(" C   C ").append("\n")
-					.append("D     D").append("\n")
-					.append(" C   C ").append("\n")
-					.append("  B B  ").append("\n")
-					.append("   A   ").toString();
+			String lineA = "   A   ";
+			String lineB = "  B B  ";
+			String lineC = " C   C ";
+			String lineD = "D     D";
+			return join(asList(lineA, lineB, lineC, lineD, lineC, lineB, lineA), '\n');
 		}
 		return null;
 	}
