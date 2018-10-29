@@ -56,12 +56,14 @@ public class DiamondTest {
 		if (letter == 'A') {
 			final List<String> lines = new ArrayList<>();
 			lines.add(firstLineOf(letter));
+			lines.addAll(innerLinesOf(letter));
 			return asString(lines);
 		}
 
 		if (letter == 'B') {
 			final List<String> lines = new ArrayList<>();
 			lines.add(firstLineOf(letter));
+			lines.addAll(innerLinesOf(letter));
 			lines.add(lastLineOf(letter));
 			return asString(lines);
 		}
@@ -77,6 +79,9 @@ public class DiamondTest {
 
 	private List<String> innerLinesOf(char letter) {
 		final List<String> innerLines = new ArrayList<>();
+		if(indexOf(letter)<2) {
+			return innerLines;
+		}
 		for (int i = 1; i < indexOf(letter); i++) {
 			final String actualLetter = valueOf(ALPHABET.charAt(i));
 			final String outerSpaces = space(indexOf(letter) - i);
