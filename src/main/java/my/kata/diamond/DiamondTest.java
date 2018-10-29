@@ -89,10 +89,12 @@ public class DiamondTest {
 	}
 
 	private List<String> lastLineOf(char letter) {
-		
-		String line = stringOf(letter) + space(indexOf(letter) + indexOf(letter) - 1) + stringOf(letter);
-		
-		return Arrays.asList(line);
+		final List<String> lines = new ArrayList<>();
+		if(indexOf(letter)<1) {
+			return lines;
+		}
+		lines.add(stringOf(letter) + space(indexOf(letter) + indexOf(letter) - 1) + stringOf(letter));
+		return lines;
 	}
 
 	private String stringOf(char letter) {
