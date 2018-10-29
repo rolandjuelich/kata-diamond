@@ -72,13 +72,15 @@ public class DiamondTest {
 
 			List<String> elements = new ArrayList<>();
 			elements.add(firstLineOf(letter));
-			
-			for(int i = 1; i<indexOf(letter); i++) {
-				String currentLetter = valueOf(ALPHABET.charAt(i));
-				String lineB = space(indexOf(letter)-i) + currentLetter + space((i-1)*2+1) + currentLetter + space(indexOf(letter)-i);
-				elements.add(lineB);
-			}
 
+			final List<String> innerLines = new ArrayList<>();
+			for (int i = 1; i < indexOf(letter); i++) {
+				final String actualLetter = valueOf(ALPHABET.charAt(i));
+				final String outerSpaces = space(indexOf(letter) - i);
+				final String innerSpaces = space((i - 1) * 2 + 1);
+				innerLines.add(join(outerSpaces, actualLetter, innerSpaces, actualLetter, outerSpaces));
+			}
+			elements.addAll(innerLines);
 			elements.add(lastLineOf(letter));
 			return asString(elements);
 		}
