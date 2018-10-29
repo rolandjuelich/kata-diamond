@@ -4,7 +4,12 @@ import static java.util.Arrays.asList;
 import static org.apache.commons.lang3.StringUtils.join;
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
+
+import com.google.common.collect.Lists;
 
 public class DiamondTest {
 
@@ -50,7 +55,12 @@ public class DiamondTest {
 		if (letter == 'B') {
 			String lineA = " A ";
 			String lineB = "B B";
-			return join(asList(lineA, lineB, lineA), '\n');
+			List<String> a2b = asList(lineA, lineB);
+			List<String> b2a = Lists.reverse(a2b);
+			List<String> lines = new ArrayList<>();
+			lines.addAll(a2b);
+			lines.addAll(b2a.subList(1, b2a.size()));
+			return join(lines, '\n');
 		}
 		if (letter == 'C') {
 			String lineA = "  A  ";
