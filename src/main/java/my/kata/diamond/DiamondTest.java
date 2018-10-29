@@ -57,7 +57,7 @@ public class DiamondTest {
 		String c = valueOf(ALPHABET.charAt(2));
 
 		if (letter == 'A') {
-			return firstLineOf(letter);
+			return asString(asList(firstLineOf(letter)));
 		}
 
 		if (letter == 'B') {
