@@ -18,7 +18,7 @@ public class DiamondTest {
 
 		private final char supplied;
 
-		public Diamond(char supplied) {
+		private Diamond(char supplied) {
 			this.supplied = supplied;
 		}
 
