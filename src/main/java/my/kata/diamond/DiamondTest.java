@@ -11,6 +11,14 @@ public class DiamondTest {
 		assertThat(diamondFor('A')).isEqualTo("A");
 	}
 
+	@Test
+	public void shouldCreateDiamond_B() {
+		assertThat(diamondFor('B')).isEqualTo(new StringBuilder()
+				.append(" A ").append("\n")
+				.append("B B").append("\n")
+				.append(" A ").toString());
+	}
+
 	private Object diamondFor(char c) {
 		return "A";
 	}
