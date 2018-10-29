@@ -75,10 +75,6 @@ public class Diamond {
 		return innerLines;
 	}
 
-	public List<String> lines() {
-		return lines;
-	}
-
 	@Override
 	public String toString() {
 		return asString(lines);
