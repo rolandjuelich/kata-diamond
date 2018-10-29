@@ -58,8 +58,10 @@ public class DiamondTest {
 		lines.add(firstLineOf(letter));
 		lines.addAll(innerLinesOf(letter));
 		lines.addAll(lastLineOf(letter));
-
-		return asString(lines);
+		String result = asString(lines);
+		
+		new Diamond(letter);
+		return result;
 	}
 
 	private List<String> innerLinesOf(char letter) {
