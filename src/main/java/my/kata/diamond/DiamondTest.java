@@ -53,7 +53,7 @@ public class DiamondTest {
 	private final static String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 	private String diamondFor(char letter) {
-		String b = stringOf('B');
+		String b = valueOf(ALPHABET.charAt(1));
 		String c = valueOf(ALPHABET.charAt(2));
 
 		if (letter == 'A') {
