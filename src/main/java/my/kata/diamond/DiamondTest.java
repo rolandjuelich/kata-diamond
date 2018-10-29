@@ -83,6 +83,11 @@ public class DiamondTest {
 			return lines;
 		}
 
+		@Override
+		public String toString() {
+			return asString(lines);
+		}
+		
 	}
 
 	@Test
