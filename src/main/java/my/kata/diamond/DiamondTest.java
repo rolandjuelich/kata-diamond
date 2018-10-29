@@ -119,9 +119,9 @@ public class DiamondTest {
 		lines.add(Diamond.firstLineOf(letter));
 		lines.addAll(Diamond.innerLinesOf(letter));
 		lines.addAll(Diamond.lastLineOf(letter));
-		String result = Diamond.asString(lines);
 		
 		Diamond diamond = Diamond.of(letter);
+		String result = diamond.toString();
 		return result;
 	}
 
