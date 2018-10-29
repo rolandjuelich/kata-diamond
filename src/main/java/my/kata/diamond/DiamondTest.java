@@ -16,11 +16,15 @@ public class DiamondTest {
 
 	public static class Diamond {
 
-		private final char supplied;
 		private final static String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-		private Diamond(char supplied) {
-			this.supplied = supplied;
+		private final List<String> lines = new ArrayList<>();
+
+		private Diamond(char letter) {
+
+			lines.add(Diamond.firstLineOf(letter));
+			lines.addAll(Diamond.innerLinesOf(letter));
+			lines.addAll(Diamond.lastLineOf(letter));
 		}
 
 		public static Diamond of(char letter) {
@@ -76,8 +80,7 @@ public class DiamondTest {
 		}
 
 		public List<String> lines() {
-			// TODO Auto-generated method stub
-			return null;
+			return lines;
 		}
 
 	}
