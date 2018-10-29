@@ -19,6 +19,16 @@ public class DiamondTest {
 				.append(" A ").toString());
 	}
 
+	@Test
+	public void shouldCreateDiamond_C() {
+		assertThat(diamondFor('C')).isEqualTo(new StringBuilder()
+				.append("  A  ").append("\n")
+				.append(" B B ").append("\n")
+				.append("C   C").append("\n")
+				.append(" B B ").append("\n")
+				.append("  A  ").toString());
+	}
+
 	private String diamondFor(char letter) {
 		if (letter == 'A') {
 			return "A";
