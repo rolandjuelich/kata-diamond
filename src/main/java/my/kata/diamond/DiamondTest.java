@@ -70,7 +70,7 @@ public class DiamondTest {
 		lines.addAll(lastLineOf(letter));
 		String result = asString(lines);
 		
-		new Diamond(letter);
+		Diamond diamond = Diamond.of(letter);
 		return result;
 	}
 
