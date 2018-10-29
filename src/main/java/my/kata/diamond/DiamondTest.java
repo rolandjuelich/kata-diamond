@@ -58,6 +58,7 @@ public class DiamondTest {
 			final List<String> lines = new ArrayList<>();
 			lines.add(firstLineOf(letter));
 			lines.addAll(innerLinesOf(letter));
+			lines.addAll(lastLineOf(letter));
 			return asString(lines);
 		}
 
