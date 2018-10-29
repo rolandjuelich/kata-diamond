@@ -61,6 +61,20 @@ public class DiamondTest {
 			return DiamondTest.Diamond.space(DiamondTest.Diamond.indexOf(letter)) + DiamondTest.Diamond.stringOf('A') + DiamondTest.Diamond.space(DiamondTest.Diamond.indexOf(letter));
 		}
 
+		private static List<String> innerLinesOf(char letter) {
+			final List<String> innerLines = new ArrayList<>();
+			if(DiamondTest.Diamond.indexOf(letter)<2) {
+				return innerLines;
+			}
+			for (int i = 1; i < DiamondTest.Diamond.indexOf(letter); i++) {
+				final String actualLetter = valueOf(ALPHABET.charAt(i));
+				final String outerSpaces = DiamondTest.Diamond.space(DiamondTest.Diamond.indexOf(letter) - i);
+				final String innerSpaces = DiamondTest.Diamond.space((i - 1) * 2 + 1);
+				innerLines.add(join(outerSpaces, actualLetter, innerSpaces, actualLetter, outerSpaces));
+			}
+			return innerLines;
+		}
+
 	}
 
 	@Test
@@ -103,26 +117,12 @@ public class DiamondTest {
 		final List<String> lines = new ArrayList<>();
 
 		lines.add(Diamond.firstLineOf(letter));
-		lines.addAll(innerLinesOf(letter));
+		lines.addAll(Diamond.innerLinesOf(letter));
 		lines.addAll(Diamond.lastLineOf(letter));
 		String result = Diamond.asString(lines);
 		
 		Diamond diamond = Diamond.of(letter);
 		return result;
-	}
-
-	private static List<String> innerLinesOf(char letter) {
-		final List<String> innerLines = new ArrayList<>();
-		if(Diamond.indexOf(letter)<2) {
-			return innerLines;
-		}
-		for (int i = 1; i < Diamond.indexOf(letter); i++) {
-			final String actualLetter = valueOf(Diamond.ALPHABET.charAt(i));
-			final String outerSpaces = Diamond.space(Diamond.indexOf(letter) - i);
-			final String innerSpaces = Diamond.space((i - 1) * 2 + 1);
-			innerLines.add(join(outerSpaces, actualLetter, innerSpaces, actualLetter, outerSpaces));
-		}
-		return innerLines;
 	}
 
 }
