@@ -1,7 +1,6 @@
 package my.kata.diamond;
 
 import static java.lang.String.valueOf;
-import static java.util.Arrays.asList;
 import static org.apache.commons.lang3.StringUtils.join;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -55,7 +54,9 @@ public class DiamondTest {
 	private String diamondFor(char letter) {
 
 		if (letter == 'A') {
-			return asString(asList(firstLineOf(letter)));
+			final List<String> lines = new ArrayList<>();
+			lines.add(firstLineOf(letter));
+			return asString(lines);
 		}
 
 		if (letter == 'B') {
