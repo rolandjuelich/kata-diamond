@@ -59,33 +59,34 @@ public class DiamondTest {
 			return a;
 		}
 		if (letter == 'B') {
-			
+
 			String lineA = space(1) + a + space(1);
-			
+
 			String lineB = b + space(1) + b;
-			
+
 			return asString(asList(lineA, lineB));
 		}
 		if (letter == 'C') {
-			
+
 			String lineA = space(2) + a + space(2);
-			
+
 			String lineB = space(1) + b + space(1) + b + space(1);
-			
+
 			String lineC = c + space(3) + c;
-			
+
 			return asString(asList(lineA, lineB, lineC));
 		}
 		if (letter == 'D') {
-			
+
 			String lineA = space(3) + a + space(3);
-			
+
 			String lineB = space(2) + b + space(1) + b + space(2);
-			
+
 			String lineC = space(1) + c + space(3) + c + space(1);
-			
-			String lineD = valueOf(alphabet.charAt(3)) + space(5) + valueOf(alphabet.charAt(3));
-			
+
+			String lineD = valueOf(alphabet.charAt(alphabet.indexOf(letter))) + space(alphabet.indexOf(letter) + 2)
+					+ valueOf(alphabet.charAt(alphabet.indexOf(letter)));
+
 			return asString(asList(lineA, lineB, lineC, lineD));
 		}
 		return null;
