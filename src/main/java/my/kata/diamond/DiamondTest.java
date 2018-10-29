@@ -59,6 +59,16 @@ public class DiamondTest {
 					.append(" B B ").append("\n")
 					.append("  A  ").toString();
 		}
+		if (letter == 'D') {
+			return new StringBuilder()
+					.append("   A   ").append("\n")
+					.append("  B B  ").append("\n")
+					.append(" C   C ").append("\n")
+					.append("D     D").append("\n")
+					.append(" C   C ").append("\n")
+					.append("  B B  ").append("\n")
+					.append("   A   ").toString();
+		}
 		return null;
 	}
 
