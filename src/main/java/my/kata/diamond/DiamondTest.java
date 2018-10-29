@@ -53,12 +53,10 @@ public class DiamondTest {
 			return join(asList(lineA,lineB,lineA),'\n');
 		}
 		if (letter == 'C') {
-			return new StringBuilder()
-					.append("  A  ").append("\n")
-					.append(" B B ").append("\n")
-					.append("C   C").append("\n")
-					.append(" B B ").append("\n")
-					.append("  A  ").toString();
+			String lineA = "  A  ";
+			String lineB = " B B ";
+			String lineC = "C   C";
+			return join(asList(lineA,lineB,lineC, lineB, lineA),'\n');
 		}
 		if (letter == 'D') {
 			return new StringBuilder()
