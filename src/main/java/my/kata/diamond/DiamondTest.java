@@ -53,20 +53,25 @@ public class DiamondTest {
 	private final static String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 	private String diamondFor(char letter) {
+
 		if (letter == 'A') {
 			return asString(asList(firstLineOf(letter)));
 		}
 
 		if (letter == 'B') {
-			return asString(asList(firstLineOf(letter), lastLineOf(letter)));
+			final List<String> lines = new ArrayList<>();
+			lines.add(firstLineOf(letter));
+			lines.add(lastLineOf(letter));
+			return asString(lines);
 		}
 
-		List<String> elements = new ArrayList<>();
-		elements.add(firstLineOf(letter));
-		elements.addAll(innerLinesOf(letter));
-		elements.add(lastLineOf(letter));
+		final List<String> lines = new ArrayList<>();
 
-		return asString(elements);
+		lines.add(firstLineOf(letter));
+		lines.addAll(innerLinesOf(letter));
+		lines.add(lastLineOf(letter));
+
+		return asString(lines);
 	}
 
 	private List<String> innerLinesOf(char letter) {
