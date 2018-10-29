@@ -62,29 +62,32 @@ public class DiamondTest {
 		}
 
 		if (letter == 'C') {
-
-			String lineB = space(1) + valueOf(ALPHABET.charAt(1)) + space(1) + valueOf(ALPHABET.charAt(1)) + space(1);
-
-			return asString(asList(firstLineOf(letter), lineB, lastLineOf(letter)));
+			List<String> elements = new ArrayList<>();
+			elements.add(firstLineOf(letter));
+			elements.addAll(innerLinesOf(letter));
+			elements.add(lastLineOf(letter));
+			return asString(elements);
 		}
 
 		if (letter == 'D') {
-
 			List<String> elements = new ArrayList<>();
 			elements.add(firstLineOf(letter));
-
-			final List<String> innerLines = new ArrayList<>();
-			for (int i = 1; i < indexOf(letter); i++) {
-				final String actualLetter = valueOf(ALPHABET.charAt(i));
-				final String outerSpaces = space(indexOf(letter) - i);
-				final String innerSpaces = space((i - 1) * 2 + 1);
-				innerLines.add(join(outerSpaces, actualLetter, innerSpaces, actualLetter, outerSpaces));
-			}
-			elements.addAll(innerLines);
+			elements.addAll(innerLinesOf(letter));
 			elements.add(lastLineOf(letter));
 			return asString(elements);
 		}
 		return null;
+	}
+
+	private List<String> innerLinesOf(char letter) {
+		final List<String> innerLines = new ArrayList<>();
+		for (int i = 1; i < indexOf(letter); i++) {
+			final String actualLetter = valueOf(ALPHABET.charAt(i));
+			final String outerSpaces = space(indexOf(letter) - i);
+			final String innerSpaces = space((i - 1) * 2 + 1);
+			innerLines.add(join(outerSpaces, actualLetter, innerSpaces, actualLetter, outerSpaces));
+		}
+		return innerLines;
 	}
 
 	private String firstLineOf(char letter) {
