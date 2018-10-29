@@ -5,7 +5,6 @@ import static org.apache.commons.lang3.StringUtils.join;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
@@ -53,14 +52,6 @@ public class DiamondTest {
 	private final static String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 	private String diamondFor(char letter) {
-
-		if (letter == 'A') {
-			final List<String> lines = new ArrayList<>();
-			lines.add(firstLineOf(letter));
-			lines.addAll(innerLinesOf(letter));
-			lines.addAll(lastLineOf(letter));
-			return asString(lines);
-		}
 
 		final List<String> lines = new ArrayList<>();
 
