@@ -72,7 +72,8 @@ public class DiamondTest {
 
 			String lineB = space(1) + b + space(1) + b + space(1);
 
-			String lineC = c + space(3) + c;
+			String lineC = valueOf(alphabet.charAt(alphabet.indexOf(letter))) + space(alphabet.indexOf(letter) + 1)
+					+ valueOf(alphabet.charAt(alphabet.indexOf(letter)));
 
 			return asString(asList(lineA, lineB, lineC));
 		}
