@@ -75,6 +75,11 @@ public class DiamondTest {
 			return innerLines;
 		}
 
+		public List<String> lines() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
 	}
 
 	@Test
@@ -114,14 +119,14 @@ public class DiamondTest {
 
 	private String diamondFor(char letter) {
 
+		Diamond diamond = Diamond.of(letter);
 		final List<String> lines = new ArrayList<>();
 
 		lines.add(Diamond.firstLineOf(letter));
 		lines.addAll(Diamond.innerLinesOf(letter));
 		lines.addAll(Diamond.lastLineOf(letter));
-		String result = Diamond.asString(lines);
+		String result = Diamond.asString(diamond.lines());
 		
-		Diamond diamond = Diamond.of(letter);
 		return result;
 	}
 
