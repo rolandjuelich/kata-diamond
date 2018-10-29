@@ -49,25 +49,31 @@ public class DiamondTest {
 	}
 
 	private String diamondFor(char letter) {
+		String space = " ";
+		String a = "A";
+		String b = "B";
+		String c = "C";
+		String d = "D";
+
 		if (letter == 'A') {
-			return "A";
+			return a;
 		}
 		if (letter == 'B') {
-			String lineA = " " + "A" + " ";
-			String lineB = "B" + " " + "B";
+			String lineA = space + a + space;
+			String lineB = b + space + b;
 			return asString(asList(lineA, lineB));
 		}
 		if (letter == 'C') {
-			String lineA = " " + " " + "A" + " " + " ";
-			String lineB = " " + "B" + " " + "B" + " ";
-			String lineC = "C" + " " + " " + " " + "C";
+			String lineA = space + space + a + space + space;
+			String lineB = space + b + space + b + space;
+			String lineC = c + space + space + space + c;
 			return asString(asList(lineA, lineB, lineC));
 		}
 		if (letter == 'D') {
-			String lineA = " " + " " + " " + "A" + " " + " " + " ";
-			String lineB = " " + " " + "B" + " " + "B" + " " + " ";
-			String lineC = " " + "C" + " " + " " + " " + "C" + " ";
-			String lineD = "D" + " " + " " + " " + " " + " " + "D";
+			String lineA = space + space + space + a + space + space + space;
+			String lineB = space + space + b + space + b + space + space;
+			String lineC = space + c + space + space + space + c + space;
+			String lineD = d + space + space + space + space + space + d;
 			return asString(asList(lineA, lineB, lineC, lineD));
 		}
 		return null;
