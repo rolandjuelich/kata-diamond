@@ -60,14 +60,6 @@ public class DiamondTest {
 			return asString(lines);
 		}
 
-		if (letter == 'B') {
-			final List<String> lines = new ArrayList<>();
-			lines.add(firstLineOf(letter));
-			lines.addAll(innerLinesOf(letter));
-			lines.add(lastLineOf(letter));
-			return asString(lines);
-		}
-
 		final List<String> lines = new ArrayList<>();
 
 		lines.add(firstLineOf(letter));
