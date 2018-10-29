@@ -53,29 +53,33 @@ public class DiamondTest {
 			return "A";
 		}
 		if (letter == 'B') {
-			String lineA = " A ";
-			String lineB = "B B";
-			List<String> a2b = asList(lineA, lineB);
-			List<String> b2a = Lists.reverse(a2b);
-			List<String> lines = new ArrayList<>();
-			lines.addAll(a2b);
-			lines.addAll(b2a.subList(1, b2a.size()));
-			return join(lines, '\n');
+			String lineA = " " + "A" + " ";
+			String lineB = "B" + " " + "B";
+			return asString(asList(lineA, lineB));
 		}
 		if (letter == 'C') {
-			String lineA = "  A  ";
-			String lineB = " B B ";
-			String lineC = "C   C";
-			return join(asList(lineA, lineB, lineC, lineB, lineA), '\n');
+			String lineA = " " + " " + "A" + " " + " ";
+			String lineB = " " + "B" + " " + "B" + " ";
+			String lineC = "C" + " " + " " + " " + "C";
+			return asString(asList(lineA, lineB, lineC));
 		}
 		if (letter == 'D') {
-			String lineA = "   A   ";
-			String lineB = "  B B  ";
-			String lineC = " C   C ";
-			String lineD = "D     D";
-			return join(asList(lineA, lineB, lineC, lineD, lineC, lineB, lineA), '\n');
+			String lineA = " " + " " + " " + "A" + " " + " " + " ";
+			String lineB = " " + " " + "B" + " " + "B" + " " + " ";
+			String lineC = " " + "C" + " " + " " + " " + "C" + " ";
+			String lineD = "D" + " " + " " + " " + " " + " " + "D";
+			return asString(asList(lineA, lineB, lineC, lineD));
 		}
 		return null;
+	}
+
+	private String asString(List<String> baseLines) {
+		List<String> b2a = Lists.reverse(baseLines);
+		List<String> lines = new ArrayList<>();
+		lines.addAll(baseLines);
+		lines.addAll(b2a.subList(1, b2a.size()));
+		String result = join(lines, '\n');
+		return result;
 	}
 
 }
