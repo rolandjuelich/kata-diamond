@@ -61,22 +61,12 @@ public class DiamondTest {
 			return asString(asList(firstLineOf(letter), lastLineOf(letter)));
 		}
 
-		if (letter == 'C') {
-			List<String> elements = new ArrayList<>();
-			elements.add(firstLineOf(letter));
-			elements.addAll(innerLinesOf(letter));
-			elements.add(lastLineOf(letter));
-			return asString(elements);
-		}
+		List<String> elements = new ArrayList<>();
+		elements.add(firstLineOf(letter));
+		elements.addAll(innerLinesOf(letter));
+		elements.add(lastLineOf(letter));
 
-		if (letter == 'D') {
-			List<String> elements = new ArrayList<>();
-			elements.add(firstLineOf(letter));
-			elements.addAll(innerLinesOf(letter));
-			elements.add(lastLineOf(letter));
-			return asString(elements);
-		}
-		return null;
+		return asString(elements);
 	}
 
 	private List<String> innerLinesOf(char letter) {
