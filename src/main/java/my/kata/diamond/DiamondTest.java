@@ -57,6 +57,10 @@ public class DiamondTest {
 			return lines;
 		}
 
+		private static String firstLineOf(char letter) {
+			return DiamondTest.Diamond.space(DiamondTest.Diamond.indexOf(letter)) + DiamondTest.Diamond.stringOf('A') + DiamondTest.Diamond.space(DiamondTest.Diamond.indexOf(letter));
+		}
+
 	}
 
 	@Test
@@ -98,7 +102,7 @@ public class DiamondTest {
 
 		final List<String> lines = new ArrayList<>();
 
-		lines.add(firstLineOf(letter));
+		lines.add(Diamond.firstLineOf(letter));
 		lines.addAll(innerLinesOf(letter));
 		lines.addAll(Diamond.lastLineOf(letter));
 		String result = Diamond.asString(lines);
@@ -119,10 +123,6 @@ public class DiamondTest {
 			innerLines.add(join(outerSpaces, actualLetter, innerSpaces, actualLetter, outerSpaces));
 		}
 		return innerLines;
-	}
-
-	private static String firstLineOf(char letter) {
-		return Diamond.space(Diamond.indexOf(letter)) + Diamond.stringOf('A') + Diamond.space(Diamond.indexOf(letter));
 	}
 
 }
