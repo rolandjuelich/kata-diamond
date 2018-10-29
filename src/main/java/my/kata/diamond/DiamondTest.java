@@ -121,9 +121,8 @@ public class DiamondTest {
 	}
 
 	private String diamondFor(char letter) {
-
 		Diamond diamond = Diamond.of(letter);
-		return Diamond.asString(diamond.lines());
+		return diamond.toString();
 	}
 
 }
