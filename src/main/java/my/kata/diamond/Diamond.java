@@ -1,12 +1,14 @@
 package my.kata.diamond;
 
 import static java.lang.String.valueOf;
+import static java.util.Arrays.asList;
+import static org.apache.commons.lang3.StringUtils.SPACE;
 import static org.apache.commons.lang3.StringUtils.join;
+import static org.apache.commons.lang3.StringUtils.repeat;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-
-import org.apache.commons.lang3.StringUtils;
 
 import com.google.common.collect.Lists;
 
@@ -17,7 +19,6 @@ public class Diamond {
 	private final List<String> lines = new ArrayList<>();
 
 	private Diamond(char letter) {
-
 		lines.add(firstLineOf(letter));
 		lines.addAll(innerLinesOf(letter));
 		lines.addAll(lastLineOf(letter));
@@ -28,14 +29,16 @@ public class Diamond {
 	}
 
 	private String firstLineOf(char letter) {
-		return space(indexOf(letter)) + stringOf('A') + space(indexOf(letter));
+		final String outerSpaces = space(indexOf(letter));
+		final String actualLetter = stringOf('A');
+		return join(outerSpaces, actualLetter, outerSpaces);
 	}
 
 	private List<String> innerLinesOf(char letter) {
-		final List<String> innerLines = new ArrayList<>();
 		if (indexOf(letter) < 2) {
-			return innerLines;
+			return Collections.emptyList();
 		}
+		final List<String> innerLines = new ArrayList<>();
 		for (int i = 1; i < indexOf(letter); i++) {
 			final String actualLetter = valueOf(ALPHABET.charAt(i));
 			final String outerSpaces = space(indexOf(letter) - i);
@@ -46,16 +49,16 @@ public class Diamond {
 	}
 
 	private List<String> lastLineOf(char letter) {
-		final List<String> lines = new ArrayList<>();
 		if (indexOf(letter) < 1) {
-			return lines;
+			return Collections.emptyList();
 		}
-		lines.add(stringOf(letter) + space(indexOf(letter) + indexOf(letter) - 1) + stringOf(letter));
-		return lines;
+		final String actualLetter = stringOf(letter);
+		final String innerSpaces = space(indexOf(letter) + indexOf(letter) - 1);
+		return asList(join(actualLetter,innerSpaces,actualLetter));
 	}
 
 	private String space(int times) {
-		return StringUtils.repeat(StringUtils.SPACE, times);
+		return repeat(SPACE, times);
 	}
 
 	private int indexOf(char letter) {
@@ -68,8 +71,8 @@ public class Diamond {
 
 	@Override
 	public String toString() {
-		List<String> reverse = Lists.reverse(lines);
-		List<String> completeLines = new ArrayList<>();
+		final List<String> reverse = Lists.reverse(lines);
+		final List<String> completeLines = new ArrayList<>();
 		completeLines.addAll(lines);
 		completeLines.addAll(reverse.subList(1, reverse.size()));
 		return join(completeLines, '\n');
