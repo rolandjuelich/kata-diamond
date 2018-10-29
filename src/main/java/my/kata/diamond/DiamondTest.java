@@ -50,48 +50,46 @@ public class DiamondTest {
 				.append("   A   ").toString());
 	}
 
+	private final static String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
 	private String diamondFor(char letter) {
-		String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-		String a = valueOf(alphabet.charAt(0));
-		String b = valueOf(alphabet.charAt(1));
-		String c = valueOf(alphabet.charAt(2));
+		String a = valueOf(ALPHABET.charAt(0));
+		String b = valueOf(ALPHABET.charAt(1));
+		String c = valueOf(ALPHABET.charAt(2));
+		
 		if (letter == 'A') {
 			return a;
 		}
+		
 		if (letter == 'B') {
-
 			String lineA = space(1) + a + space(1);
-
-			String lineB = valueOf(alphabet.charAt(alphabet.indexOf(letter))) + space(alphabet.indexOf(letter) + 0)
-					+ valueOf(alphabet.charAt(alphabet.indexOf(letter)));
-
+			String lineB = stringOf(letter) + space(indexOf(letter) + 0) + stringOf(letter);
 			return asString(asList(lineA, lineB));
 		}
+		
 		if (letter == 'C') {
-
 			String lineA = space(2) + a + space(2);
-
 			String lineB = space(1) + b + space(1) + b + space(1);
-
-			String lineC = valueOf(alphabet.charAt(alphabet.indexOf(letter))) + space(alphabet.indexOf(letter) + 1)
-					+ valueOf(alphabet.charAt(alphabet.indexOf(letter)));
-
+			String lineC = stringOf(letter) + space(indexOf(letter) + 1) + stringOf(letter);
 			return asString(asList(lineA, lineB, lineC));
 		}
+
 		if (letter == 'D') {
-
 			String lineA = space(3) + a + space(3);
-
 			String lineB = space(2) + b + space(1) + b + space(2);
-
 			String lineC = space(1) + c + space(3) + c + space(1);
-
-			String lineD = valueOf(alphabet.charAt(alphabet.indexOf(letter))) + space(alphabet.indexOf(letter) + 2)
-					+ valueOf(alphabet.charAt(alphabet.indexOf(letter)));
-
+			String lineD = stringOf(letter) + space(indexOf(letter) + 2) + stringOf(letter);
 			return asString(asList(lineA, lineB, lineC, lineD));
 		}
 		return null;
+	}
+
+	private String stringOf(char letter) {
+		return valueOf(ALPHABET.charAt(indexOf(letter)));
+	}
+
+	private int indexOf(char letter) {
+		return ALPHABET.indexOf(letter);
 	}
 
 	private String space(int times) {
