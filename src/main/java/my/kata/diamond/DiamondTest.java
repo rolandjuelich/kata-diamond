@@ -7,6 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 
 import com.google.common.collect.Lists;
@@ -64,19 +65,23 @@ public class DiamondTest {
 			return asString(asList(lineA, lineB));
 		}
 		if (letter == 'C') {
-			String lineA = space + space + a + space + space;
+			String lineA = space(2) + a + space(2);
 			String lineB = space + b + space + b + space;
-			String lineC = c + space + space + space + c;
+			String lineC = c + space(2) + space + c;
 			return asString(asList(lineA, lineB, lineC));
 		}
 		if (letter == 'D') {
-			String lineA = space + space + space + a + space + space + space;
-			String lineB = space + space + b + space + b + space + space;
-			String lineC = space + c + space + space + space + c + space;
-			String lineD = d + space + space + space + space + space + d;
+			String lineA = space(2) + space + a + space(2) + space;
+			String lineB = space(2) + b + space + b + space(2);
+			String lineC = space + c + space(2) + space + c + space;
+			String lineD = d + space(2) + space(2) + space + d;
 			return asString(asList(lineA, lineB, lineC, lineD));
 		}
 		return null;
+	}
+
+	private String space(int times) {
+		return StringUtils.repeat(StringUtils.SPACE, times);
 	}
 
 	private String asString(List<String> baseLines) {
