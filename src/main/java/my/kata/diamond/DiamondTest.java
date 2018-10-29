@@ -1,5 +1,6 @@
 package my.kata.diamond;
 
+import static java.lang.String.valueOf;
 import static java.util.Arrays.asList;
 import static org.apache.commons.lang3.StringUtils.join;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -50,10 +51,11 @@ public class DiamondTest {
 	}
 
 	private String diamondFor(char letter) {
-		String a = "A";
-		String b = "B";
-		String c = "C";
-		String d = "D";
+		String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		String a = valueOf(alphabet.charAt(0));
+		String b = valueOf(alphabet.charAt(1));
+		String c = valueOf(alphabet.charAt(2));
+		String d = valueOf(alphabet.charAt(3));
 
 		if (letter == 'A') {
 			return a;
