@@ -40,6 +40,10 @@ public class DiamondTest {
 			return StringUtils.repeat(StringUtils.SPACE, times);
 		}
 
+		private static int indexOf(char letter) {
+			return ALPHABET.indexOf(letter);
+		}
+
 	}
 
 	@Test
@@ -92,12 +96,12 @@ public class DiamondTest {
 
 	private static List<String> innerLinesOf(char letter) {
 		final List<String> innerLines = new ArrayList<>();
-		if(indexOf(letter)<2) {
+		if(Diamond.indexOf(letter)<2) {
 			return innerLines;
 		}
-		for (int i = 1; i < indexOf(letter); i++) {
+		for (int i = 1; i < Diamond.indexOf(letter); i++) {
 			final String actualLetter = valueOf(Diamond.ALPHABET.charAt(i));
-			final String outerSpaces = Diamond.space(indexOf(letter) - i);
+			final String outerSpaces = Diamond.space(Diamond.indexOf(letter) - i);
 			final String innerSpaces = Diamond.space((i - 1) * 2 + 1);
 			innerLines.add(join(outerSpaces, actualLetter, innerSpaces, actualLetter, outerSpaces));
 		}
@@ -105,24 +109,20 @@ public class DiamondTest {
 	}
 
 	private static String firstLineOf(char letter) {
-		return Diamond.space(indexOf(letter)) + stringOf('A') + Diamond.space(indexOf(letter));
+		return Diamond.space(Diamond.indexOf(letter)) + stringOf('A') + Diamond.space(Diamond.indexOf(letter));
 	}
 
 	private static List<String> lastLineOf(char letter) {
 		final List<String> lines = new ArrayList<>();
-		if(indexOf(letter)<1) {
+		if(Diamond.indexOf(letter)<1) {
 			return lines;
 		}
-		lines.add(stringOf(letter) + Diamond.space(indexOf(letter) + indexOf(letter) - 1) + stringOf(letter));
+		lines.add(stringOf(letter) + Diamond.space(Diamond.indexOf(letter) + Diamond.indexOf(letter) - 1) + stringOf(letter));
 		return lines;
 	}
 
 	private static String stringOf(char letter) {
-		return valueOf(Diamond.ALPHABET.charAt(indexOf(letter)));
-	}
-
-	private static int indexOf(char letter) {
-		return Diamond.ALPHABET.indexOf(letter);
+		return valueOf(Diamond.ALPHABET.charAt(Diamond.indexOf(letter)));
 	}
 
 }
