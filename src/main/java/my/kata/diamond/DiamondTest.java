@@ -71,10 +71,10 @@ public class DiamondTest {
 			return asString(asList(lineA, lineB, lineC));
 		}
 		if (letter == 'D') {
-			String lineA = space(2) + space + a + space(2) + space;
-			String lineB = space(2) + b + space + b + space(2);
-			String lineC = space + c + space(2) + space + c + space;
-			String lineD = d + space(2) + space(2) + space + d;
+			String lineA = space(3) + a + space(3);
+			String lineB = space(2) + b + space(1) + b + space(2);
+			String lineC = space(1) + c + space(3) + c + space(1);
+			String lineD = d + space(5) + d;
 			return asString(asList(lineA, lineB, lineC, lineD));
 		}
 		return null;
