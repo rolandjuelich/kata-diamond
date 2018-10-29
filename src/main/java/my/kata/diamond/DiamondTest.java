@@ -70,10 +70,19 @@ public class DiamondTest {
 
 		if (letter == 'D') {
 
+			List<String> elements = new ArrayList<>();
+			elements.add(firstLineOf(letter));
+			for(int i = 1; i<indexOf(letter); i++) {
+				
+			}
+			
 			String lineB = space(2) + valueOf(ALPHABET.charAt(1)) + space(1) + valueOf(ALPHABET.charAt(1)) + space(2);
 			String lineC = space(1) + valueOf(ALPHABET.charAt(2)) + space(3) + valueOf(ALPHABET.charAt(2)) + space(1);
 
-			return asString(asList(firstLineOf(letter), lineB, lineC, lastLineOf(letter)));
+			elements.add(lineB);
+			elements.add(lineC);
+			elements.add(lastLineOf(letter));
+			return asString(elements);
 		}
 		return null;
 	}
