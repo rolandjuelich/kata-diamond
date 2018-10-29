@@ -27,15 +27,6 @@ public class Diamond {
 		return new Diamond(letter);
 	}
 
-	private static String asString(List<String> baseLines) {
-		List<String> b2a = Lists.reverse(baseLines);
-		List<String> lines = new ArrayList<>();
-		lines.addAll(baseLines);
-		lines.addAll(b2a.subList(1, b2a.size()));
-		String result = join(lines, '\n');
-		return result;
-	}
-
 	static String space(int times) {
 		return StringUtils.repeat(StringUtils.SPACE, times);
 	}
@@ -77,7 +68,11 @@ public class Diamond {
 
 	@Override
 	public String toString() {
-		return asString(lines);
+		List<String> reverse = Lists.reverse(lines);
+		List<String> completeLines = new ArrayList<>();
+		completeLines.addAll(lines);
+		completeLines.addAll(reverse.subList(1, reverse.size()));
+		return join(completeLines, '\n');
 	}
 	
 }
