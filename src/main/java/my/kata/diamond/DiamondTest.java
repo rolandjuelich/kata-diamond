@@ -14,6 +14,16 @@ import com.google.common.collect.Lists;
 
 public class DiamondTest {
 
+	public class Diamond {
+
+		private final char supplied;
+
+		public Diamond(char supplied) {
+			this.supplied = supplied;
+		}
+
+	}
+
 	@Test
 	public void shouldCreateDiamond_A() {
 		assertThat(diamondFor('A')).isEqualTo("A");
