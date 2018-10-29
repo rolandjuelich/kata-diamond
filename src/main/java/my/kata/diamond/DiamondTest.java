@@ -123,14 +123,7 @@ public class DiamondTest {
 	private String diamondFor(char letter) {
 
 		Diamond diamond = Diamond.of(letter);
-		final List<String> lines = new ArrayList<>();
-
-		lines.add(Diamond.firstLineOf(letter));
-		lines.addAll(Diamond.innerLinesOf(letter));
-		lines.addAll(Diamond.lastLineOf(letter));
-		String result = Diamond.asString(diamond.lines());
-		
-		return result;
+		return Diamond.asString(diamond.lines());
 	}
 
 }
