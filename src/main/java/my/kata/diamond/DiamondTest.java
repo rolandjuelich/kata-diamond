@@ -36,6 +36,10 @@ public class DiamondTest {
 			return result;
 		}
 
+		private static String space(int times) {
+			return StringUtils.repeat(StringUtils.SPACE, times);
+		}
+
 	}
 
 	@Test
@@ -86,43 +90,39 @@ public class DiamondTest {
 		return result;
 	}
 
-	private List<String> innerLinesOf(char letter) {
+	private static List<String> innerLinesOf(char letter) {
 		final List<String> innerLines = new ArrayList<>();
 		if(indexOf(letter)<2) {
 			return innerLines;
 		}
 		for (int i = 1; i < indexOf(letter); i++) {
 			final String actualLetter = valueOf(Diamond.ALPHABET.charAt(i));
-			final String outerSpaces = space(indexOf(letter) - i);
-			final String innerSpaces = space((i - 1) * 2 + 1);
+			final String outerSpaces = Diamond.space(indexOf(letter) - i);
+			final String innerSpaces = Diamond.space((i - 1) * 2 + 1);
 			innerLines.add(join(outerSpaces, actualLetter, innerSpaces, actualLetter, outerSpaces));
 		}
 		return innerLines;
 	}
 
-	private String firstLineOf(char letter) {
-		return space(indexOf(letter)) + stringOf('A') + space(indexOf(letter));
+	private static String firstLineOf(char letter) {
+		return Diamond.space(indexOf(letter)) + stringOf('A') + Diamond.space(indexOf(letter));
 	}
 
-	private List<String> lastLineOf(char letter) {
+	private static List<String> lastLineOf(char letter) {
 		final List<String> lines = new ArrayList<>();
 		if(indexOf(letter)<1) {
 			return lines;
 		}
-		lines.add(stringOf(letter) + space(indexOf(letter) + indexOf(letter) - 1) + stringOf(letter));
+		lines.add(stringOf(letter) + Diamond.space(indexOf(letter) + indexOf(letter) - 1) + stringOf(letter));
 		return lines;
 	}
 
-	private String stringOf(char letter) {
+	private static String stringOf(char letter) {
 		return valueOf(Diamond.ALPHABET.charAt(indexOf(letter)));
 	}
 
-	private int indexOf(char letter) {
+	private static int indexOf(char letter) {
 		return Diamond.ALPHABET.indexOf(letter);
-	}
-
-	private String space(int times) {
-		return StringUtils.repeat(StringUtils.SPACE, times);
 	}
 
 }
