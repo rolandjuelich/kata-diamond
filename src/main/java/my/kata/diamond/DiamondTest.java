@@ -19,14 +19,17 @@ public class DiamondTest {
 				.append(" A ").toString());
 	}
 
-	private Object diamondFor(char c) {
-		if (c == 'B') {
+	private String diamondFor(char letter) {
+		if (letter == 'A') {
+			return "A";
+		}
+		if (letter == 'B') {
 			return new StringBuilder()
 					.append(" A ").append("\n")
 					.append("B B").append("\n")
 					.append(" A ").toString();
 		}
-		return "A";
+		return null;
 	}
 
 }
