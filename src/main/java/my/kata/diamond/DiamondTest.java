@@ -5,6 +5,7 @@ import static org.apache.commons.lang3.StringUtils.join;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
@@ -64,7 +65,7 @@ public class DiamondTest {
 
 		lines.add(firstLineOf(letter));
 		lines.addAll(innerLinesOf(letter));
-		lines.add(lastLineOf(letter));
+		lines.addAll(lastLineOf(letter));
 
 		return asString(lines);
 	}
@@ -87,8 +88,11 @@ public class DiamondTest {
 		return space(indexOf(letter)) + stringOf('A') + space(indexOf(letter));
 	}
 
-	private String lastLineOf(char letter) {
-		return stringOf(letter) + space(indexOf(letter) + indexOf(letter) - 1) + stringOf(letter);
+	private List<String> lastLineOf(char letter) {
+		
+		String line = stringOf(letter) + space(indexOf(letter) + indexOf(letter) - 1) + stringOf(letter);
+		
+		return Arrays.asList(line);
 	}
 
 	private String stringOf(char letter) {
