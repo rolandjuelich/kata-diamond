@@ -1,5 +1,7 @@
 package my.kata.diamond;
 
+import static java.util.Arrays.asList;
+import static org.apache.commons.lang3.StringUtils.join;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.Test;
@@ -46,10 +48,9 @@ public class DiamondTest {
 			return "A";
 		}
 		if (letter == 'B') {
-			return new StringBuilder()
-					.append(" A ").append("\n")
-					.append("B B").append("\n")
-					.append(" A ").toString();
+			String lineA = " A ";
+			String lineB = "B B";
+			return join(asList(lineA,lineB,lineA),'\n');
 		}
 		if (letter == 'C') {
 			return new StringBuilder()
