@@ -50,7 +50,6 @@ public class DiamondTest {
 	}
 
 	private String diamondFor(char letter) {
-		String space = " ";
 		String a = "A";
 		String b = "B";
 		String c = "C";
@@ -60,8 +59,8 @@ public class DiamondTest {
 			return a;
 		}
 		if (letter == 'B') {
-			String lineA = space + a + space;
-			String lineB = b + space + b;
+			String lineA = space(1) + a + space(1);
+			String lineB = b + space(1) + b;
 			return asString(asList(lineA, lineB));
 		}
 		if (letter == 'C') {
