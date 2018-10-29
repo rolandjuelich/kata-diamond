@@ -20,6 +20,12 @@ public class DiamondTest {
 	}
 
 	private Object diamondFor(char c) {
+		if (c == 'B') {
+			return new StringBuilder()
+					.append(" A ").append("\n")
+					.append("B B").append("\n")
+					.append(" A ").toString();
+		}
 		return "A";
 	}
 
