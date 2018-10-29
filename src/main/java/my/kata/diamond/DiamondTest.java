@@ -56,32 +56,41 @@ public class DiamondTest {
 		String a = valueOf(ALPHABET.charAt(0));
 		String b = valueOf(ALPHABET.charAt(1));
 		String c = valueOf(ALPHABET.charAt(2));
-		
+
 		if (letter == 'A') {
 			return a;
 		}
-		
+
 		if (letter == 'B') {
+
 			String lineA = space(1) + a + space(1);
-			String lineB = stringOf(letter) + space(indexOf(letter) + 0) + stringOf(letter);
-			return asString(asList(lineA, lineB));
+
+			return asString(asList(lineA, lastLineOf(letter)));
 		}
-		
+
 		if (letter == 'C') {
+
 			String lineA = space(2) + a + space(2);
+
 			String lineB = space(1) + b + space(1) + b + space(1);
-			String lineC = stringOf(letter) + space(indexOf(letter) + 1) + stringOf(letter);
-			return asString(asList(lineA, lineB, lineC));
+
+			return asString(asList(lineA, lineB, lastLineOf(letter)));
 		}
 
 		if (letter == 'D') {
+
 			String lineA = space(3) + a + space(3);
+
 			String lineB = space(2) + b + space(1) + b + space(2);
 			String lineC = space(1) + c + space(3) + c + space(1);
-			String lineD = stringOf(letter) + space(indexOf(letter) + 2) + stringOf(letter);
-			return asString(asList(lineA, lineB, lineC, lineD));
+
+			return asString(asList(lineA, lineB, lineC, lastLineOf(letter)));
 		}
 		return null;
+	}
+
+	private String lastLineOf(char letter) {
+		return stringOf(letter) + space(indexOf(letter) + indexOf(letter) - 1) + stringOf(letter);
 	}
 
 	private String stringOf(char letter) {
