@@ -57,12 +57,12 @@ public class DiamondTest {
 		String c = valueOf(ALPHABET.charAt(2));
 
 		if (letter == 'A') {
-			return space(0) + stringOf('A') + space(0);
+			return firstLineOf(letter);
 		}
 
 		if (letter == 'B') {
 
-			String lineA = space(1) + stringOf('A') + space(1);
+			String lineA = firstLineOf(letter);
 
 			return asString(asList(lineA, lastLineOf(letter)));
 		}
@@ -86,6 +86,10 @@ public class DiamondTest {
 			return asString(asList(lineA, lineB, lineC, lastLineOf(letter)));
 		}
 		return null;
+	}
+
+	private String firstLineOf(char letter) {
+		return space(indexOf(letter)) + stringOf('A') + space(indexOf(letter));
 	}
 
 	private String lastLineOf(char letter) {
