@@ -53,24 +53,23 @@ public class DiamondTest {
 	private final static String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 	private String diamondFor(char letter) {
-		String a = valueOf(ALPHABET.charAt(0));
 		String b = valueOf(ALPHABET.charAt(1));
 		String c = valueOf(ALPHABET.charAt(2));
 
 		if (letter == 'A') {
-			return a;
+			return space(0) + stringOf('A') + space(0);
 		}
 
 		if (letter == 'B') {
 
-			String lineA = space(1) + a + space(1);
+			String lineA = space(1) + stringOf('A') + space(1);
 
 			return asString(asList(lineA, lastLineOf(letter)));
 		}
 
 		if (letter == 'C') {
 
-			String lineA = space(2) + a + space(2);
+			String lineA = space(2) + stringOf('A') + space(2);
 
 			String lineB = space(1) + b + space(1) + b + space(1);
 
@@ -79,7 +78,7 @@ public class DiamondTest {
 
 		if (letter == 'D') {
 
-			String lineA = space(3) + a + space(3);
+			String lineA = space(3) + stringOf('A') + space(3);
 
 			String lineB = space(2) + b + space(1) + b + space(2);
 			String lineC = space(1) + c + space(3) + c + space(1);
