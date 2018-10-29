@@ -66,8 +66,8 @@ public class DiamondTest {
 		}
 		if (letter == 'C') {
 			String lineA = space(2) + a + space(2);
-			String lineB = space + b + space + b + space;
-			String lineC = c + space(2) + space + c;
+			String lineB = space(1) + b + space(1) + b + space(1);
+			String lineC = c + space(3) + c;
 			return asString(asList(lineA, lineB, lineC));
 		}
 		if (letter == 'D') {
