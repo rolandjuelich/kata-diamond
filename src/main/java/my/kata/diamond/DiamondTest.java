@@ -14,12 +14,16 @@ import com.google.common.collect.Lists;
 
 public class DiamondTest {
 
-	public class Diamond {
+	public static class Diamond {
 
 		private final char supplied;
 
 		public Diamond(char supplied) {
 			this.supplied = supplied;
+		}
+
+		public static Diamond of(char letter) {
+			return new Diamond(letter);
 		}
 
 	}
