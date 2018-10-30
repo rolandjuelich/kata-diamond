@@ -4,6 +4,7 @@ import static java.lang.String.valueOf;
 import static my.kata.diamond.text.Alphabet.space;
 
 import my.kata.diamond.text.Alphabet;
+import my.kata.diamond.text.Alphabet.Letter;
 import my.kata.diamond.text.Line;
 import my.kata.diamond.text.Lines;
 
@@ -19,8 +20,12 @@ public class Diamond {
 		this.model = topTriangle.add(bottomTriangle);
 	}
 
-	public static Diamond of(char letter) {
-		return new Diamond(letter);
+	public static Diamond of(final Letter letter) {
+		return new Diamond(letter.value());
+	}
+
+	public static Alphabet alphabet() {
+		return ALPHABET;
 	}
 
 	@Override
@@ -55,10 +60,6 @@ public class Diamond {
 		final String letter = valueOf(character);
 		final String innerSpaces = space(2 * alphabet().indexOf(character) - 1);
 		return Line.of(letter, innerSpaces, letter);
-	}
-
-	public static Alphabet alphabet() {
-		return ALPHABET;
 	}
 
 }

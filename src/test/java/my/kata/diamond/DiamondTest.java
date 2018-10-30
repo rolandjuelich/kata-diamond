@@ -1,8 +1,11 @@
 package my.kata.diamond;
 
+import static my.kata.diamond.Diamond.alphabet;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.Test;
+
+import my.kata.diamond.text.Alphabet.Letter;
 
 public class DiamondTest {
 
@@ -41,8 +44,9 @@ public class DiamondTest {
 				.append("   A   ").toString());
 	}
 
-	private String diamondFor(char letter) {
-		return Diamond.of(Diamond.alphabet().letter(letter)).toString();
+	private String diamondFor(char someCharacter) {
+		final Letter suppliedLetter = alphabet().letter(someCharacter);
+		return Diamond.of(suppliedLetter).toString();
 	}
 
 }
