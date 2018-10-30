@@ -7,10 +7,12 @@ public class Diamond {
 
 	private final Alphabet alphabet = Alphabet.of("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 
-	private final Lines upperHalf;
+	private final Lines model;
 
 	private Diamond(char letter) {
-		upperHalf = firstLineFor(letter).add(innerLinesFor(letter).add(lastLineFor(letter)));
+		final Lines topTriangle = shortestLineOf(letter).add(growingLinesOf(letter).add(widestLineOf(letter)));
+		final Lines bottomTriangle = topTriangle.reverse().startingFromIndex(1);
+		this.model = topTriangle.add(bottomTriangle);
 	}
 
 	public static Diamond of(char letter) {
@@ -19,16 +21,16 @@ public class Diamond {
 
 	@Override
 	public String toString() {
-		return upperHalf.add(upperHalf.reverse().startingFromIndex(1)).asText();
+		return model.asText();
 	}
 
-	private Line firstLineFor(char character) {
+	private Line shortestLineOf(char character) {
 		final String letter = valueOf(alphabet.characterAt(0));
 		final String outerSpaces = space(alphabet.indexOf(character));
 		return Line.of(outerSpaces, letter, outerSpaces);
 	}
 
-	private Lines innerLinesFor(char character) {
+	private Lines growingLinesOf(char character) {
 		if (alphabet.indexOf(character) < 2) {
 			return Lines.empty();
 		}
@@ -42,7 +44,7 @@ public class Diamond {
 		return lines;
 	}
 
-	private Line lastLineFor(char character) {
+	private Line widestLineOf(char character) {
 		if (alphabet.indexOf(character) < 1) {
 			return Line.none();
 		}
