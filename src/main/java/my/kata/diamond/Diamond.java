@@ -43,10 +43,10 @@ public class Diamond {
 		return upperHalf.values();
 	}
 
-	private List<String> firstLineFor(char character) {
+	private Lines firstLineFor(char character) {
 		final String letter = valueOf(alphabet.characterAt(0));
 		final String outerSpaces = space(alphabet.indexOf(character));
-		return asList(join(outerSpaces, letter, outerSpaces));
+		return Lines.of(asList(join(outerSpaces, letter, outerSpaces)));
 	}
 
 	private List<String> innerLinesFor(char character) {
