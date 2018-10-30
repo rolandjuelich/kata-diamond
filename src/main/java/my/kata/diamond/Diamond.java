@@ -27,10 +27,8 @@ public class Diamond {
 	@Override
 	public String toString() {
 		final List<String> reverse = Lists.reverse(upperHalf.values());
-		final List<String> allLines = new ArrayList<>();
-		allLines.addAll(upperHalf.values());
-		allLines.addAll(reverse.subList(1, reverse.size()));
-		return Lines.of(allLines).asText();
+		final List<String> subList = reverse.subList(1, reverse.size());
+		return upperHalf.add(Lines.of(subList)).asText();
 	}
 
 	private Lines firstLineFor(char character) {
