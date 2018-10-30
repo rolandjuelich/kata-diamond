@@ -24,7 +24,9 @@ public class Diamond {
 		List<String> innerLines = innerLinesFor(letter);
 		List<String> lastLine = lastLineFor(letter);
 
-		upperHalf.add(firstLine);
+		upperHalf.add(Lines.of(firstLine));
+		upperHalf.add(Lines.of(innerLines));
+		upperHalf.add(Lines.of(lastLine));
 		
 		lines.addAll(firstLine);
 		lines.addAll(innerLines);
