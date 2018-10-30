@@ -1,6 +1,5 @@
 package my.kata.diamond;
 
-import static my.kata.diamond.Diamond.alphabet;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.Test;
@@ -11,12 +10,26 @@ public class DiamondTest {
 
 	@Test
 	public void shouldCreateDiamond_A() {
-		assertThat(diamondFor('A')).isEqualTo("A");
+		// given
+		final Letter letterA = Diamond.alphabet().letter('A');
+
+		// when
+		final Diamond diamond = Diamond.of(letterA);
+
+		// then
+		assertThat(diamond.toString()).isEqualTo("A");
 	}
 
 	@Test
 	public void shouldCreateDiamond_B() {
-		assertThat(diamondFor('B')).isEqualTo(new StringBuilder()
+		// given
+		final Letter letterB = Diamond.alphabet().letter('B');
+
+		// when
+		final Diamond diamond = Diamond.of(letterB);
+
+		// then
+		assertThat(diamond.toString()).isEqualTo(new StringBuilder()
 				.append(" A ").append("\n")
 				.append("B B").append("\n")
 				.append(" A ").toString());
@@ -24,7 +37,14 @@ public class DiamondTest {
 
 	@Test
 	public void shouldCreateDiamond_C() {
-		assertThat(diamondFor('C')).isEqualTo(new StringBuilder()
+		// given
+		final Letter letterC = Diamond.alphabet().letter('C');
+
+		// when
+		final Diamond diamond = Diamond.of(letterC);
+
+		// then
+		assertThat(diamond.toString()).isEqualTo(new StringBuilder()
 				.append("  A  ").append("\n")
 				.append(" B B ").append("\n")
 				.append("C   C").append("\n")
@@ -34,7 +54,14 @@ public class DiamondTest {
 
 	@Test
 	public void shouldCreateDiamond_D() {
-		assertThat(diamondFor('D')).isEqualTo(new StringBuilder()
+		// given
+		final Letter letterD = Diamond.alphabet().letter('D');
+
+		// when
+		final Diamond diamond = Diamond.of(letterD);
+
+		// then
+		assertThat(diamond.toString()).isEqualTo(new StringBuilder()
 				.append("   A   ").append("\n")
 				.append("  B B  ").append("\n")
 				.append(" C   C ").append("\n")
@@ -42,11 +69,6 @@ public class DiamondTest {
 				.append(" C   C ").append("\n")
 				.append("  B B  ").append("\n")
 				.append("   A   ").toString());
-	}
-
-	private String diamondFor(char someCharacter) {
-		final Letter suppliedLetter = alphabet().letter(someCharacter);
-		return Diamond.of(suppliedLetter).toString();
 	}
 
 }
