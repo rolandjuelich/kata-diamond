@@ -1,5 +1,6 @@
 package my.kata.diamond;
 
+import static java.util.Arrays.asList;
 import static java.util.Collections.emptyList;
 import static org.apache.commons.lang3.StringUtils.join;
 
@@ -45,6 +46,13 @@ public class Lines {
 
 	public Lines reverse() {
 		return new Lines(Lists.reverse(values()));
+	}
+
+	public Lines add(final Line line) {
+		if(Line.none().equals(line)) {
+			return new Lines(values);
+		}
+		return new Lines(values).add(new Lines(asList(line.value())));
 	}
 
 }

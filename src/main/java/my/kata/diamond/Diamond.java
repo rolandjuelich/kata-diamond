@@ -1,7 +1,6 @@
 package my.kata.diamond;
 
 import static java.lang.String.valueOf;
-import static java.util.Arrays.asList;
 import static my.kata.diamond.Alphabet.space;
 import static org.apache.commons.lang3.StringUtils.join;
 
@@ -47,9 +46,9 @@ public class Diamond {
 		return Lines.of(lines);
 	}
 
-	private Lines lastLineFor(char character) {
+	private Line lastLineFor(char character) {
 		if (alphabet.indexOf(character) < 1) {
-			return Lines.empty();
+			return Line.none();
 		}
 		final String letter = valueOf(character);
 		final String innerSpaces = space(alphabet.indexOf(character) + alphabet.indexOf(character) - 1);
