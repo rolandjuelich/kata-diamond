@@ -18,11 +18,11 @@ public class Diamond {
 	private final Lines upperHalf;
 
 	private Diamond(char letter) {
-		List<String> firstLine = firstLineFor(letter);
+		Lines firstLine = firstLineFor(letter);
 		List<String> innerLines = innerLinesFor(letter);
 		List<String> lastLine = lastLineFor(letter);
 
-		upperHalf = Lines.of(Lines.of(firstLine).add(Lines.of(innerLines).add(Lines.of(lastLine))).values());
+		upperHalf = Lines.of(firstLine.add(Lines.of(innerLines).add(Lines.of(lastLine))).values());
 
 	}
 
