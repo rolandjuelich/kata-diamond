@@ -17,7 +17,7 @@ public class Diamond {
 
 	private final List<String> lines = new ArrayList<>();
 	
-	private final Lines upperHalf = new Lines();
+	private final Lines upperHalf = Lines.empty();
 
 	private Diamond(char letter) {
 		List<String> firstLine = firstLineFor(letter);
