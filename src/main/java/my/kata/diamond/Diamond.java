@@ -49,7 +49,7 @@ public class Diamond {
 		return Lines.of(asList(join(outerSpaces, letter, outerSpaces)));
 	}
 
-	private List<String> innerLinesFor(char character) {
+	private Lines innerLinesFor(char character) {
 		if (alphabet.indexOf(character) < 2) {
 			return emptyList();
 		}
@@ -60,7 +60,7 @@ public class Diamond {
 			final String innerSpaces = space(2 * i - 1);
 			lines.add(join(outerSpaces, letter, innerSpaces, letter, outerSpaces));
 		}
-		return lines;
+		return Lines.of(lines);
 	}
 
 	private List<String> lastLineFor(char character) {
