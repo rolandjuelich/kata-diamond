@@ -21,4 +21,9 @@ public class AlphabetTest {
 		assertThat(letter.value()).isEqualTo('A');
 	}
 
+	@Test(expected = IllegalArgumentException.class)
+	public void shouldNotCreateLetterIfNotInAlphabet() {
+		Alphabet.of("A").letter('B');
+	}
+
 }
