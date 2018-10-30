@@ -1,5 +1,7 @@
 package my.kata.diamond;
 
+import static java.util.Collections.emptyList;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +17,10 @@ public class Lines {
 		return new Lines(lines);
 	}
 
+	public static Lines empty() {
+		return new Lines(emptyList());
+	}
+
 	public Lines add(final Lines lines) {
 		final List<String> newLines = new ArrayList<String>();
 		newLines.addAll(values);
@@ -25,5 +31,6 @@ public class Lines {
 	public List<String> values() {
 		return new ArrayList<>(this.values);
 	}
+
 
 }

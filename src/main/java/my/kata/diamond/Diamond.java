@@ -19,10 +19,10 @@ public class Diamond {
 
 	private Diamond(char letter) {
 		Lines firstLine = firstLineFor(letter);
-		List<String> innerLines = innerLinesFor(letter);
+		Lines innerLines = innerLinesFor(letter);
 		List<String> lastLine = lastLineFor(letter);
 
-		upperHalf = Lines.of(firstLine.add(Lines.of(innerLines).add(Lines.of(lastLine))).values());
+		upperHalf = Lines.of(firstLine.add(innerLines.add(Lines.of(lastLine))).values());
 
 	}
 
@@ -51,7 +51,7 @@ public class Diamond {
 
 	private Lines innerLinesFor(char character) {
 		if (alphabet.indexOf(character) < 2) {
-			return emptyList();
+			return Lines.empty();
 		}
 		final List<String> lines = new ArrayList<>();
 		for (int i = 1; i < alphabet.indexOf(character); i++) {
