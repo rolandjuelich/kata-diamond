@@ -35,17 +35,17 @@ public class AlphabetTest {
 
 		charactersNotIn(alphabet).examples(50).forEach(example -> {
 			// given
-			final char character = example;
+			final char invalid = example;
 
 			// when
 			final Throwable exception = catchThrowable(() -> {
-				alphabet.letter(character);
+				alphabet.letter(invalid);
 			});
 
 			// then
 			assertThat(exception).isInstanceOf(IllegalArgumentException.class).hasMessage(
 					"'%s' is not in alphabet of '%s'",
-					character, alphabet.characters());
+					invalid, alphabet.characters());
 
 		});
 
