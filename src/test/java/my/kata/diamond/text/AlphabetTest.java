@@ -29,7 +29,7 @@ public class AlphabetTest {
 	public void shouldNotCreateLetterIfNotInAlphabet() {
 		// assume
 		final Alphabet alphabet = Alphabet.of("A");
-		final List<Character> invalid = Arrays.asList('B');
+		final List<Character> invalid = Arrays.asList('B', 'C');
 
 		for (Character invalidCharacter : invalid) {
 			// given
