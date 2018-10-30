@@ -27,7 +27,7 @@ public class Diamond {
 		return upperHalf.add(upperHalf.reverse().startingFromIndex(1)).asText();
 	}
 
-	private Lines firstLineFor(char character) {
+	private Line firstLineFor(char character) {
 		final String letter = valueOf(alphabet.characterAt(0));
 		final String outerSpaces = space(alphabet.indexOf(character));
 		return Line.of(outerSpaces, letter, outerSpaces);
