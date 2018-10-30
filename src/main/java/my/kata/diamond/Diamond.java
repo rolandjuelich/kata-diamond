@@ -15,9 +15,15 @@ public class Diamond {
 	private final Lines model;
 
 	private Diamond(char letter) {
-		final Lines topTriangle = shortestLineOf(letter).add(growingLinesOf(letter).add(widestLineOf(letter)));
-		final Lines bottomTriangle = topTriangle.reverse().startingFromLine(2);
-		this.model = topTriangle.add(bottomTriangle);
+		if (containsOnly(letter)) {
+			this.model = Lines.of(shortestLineOf(letter));
+		} else {
+			this.model = shortestLineOf(letter)
+					.add(growingLinesOf(letter))
+					.add(widestLineOf(letter))
+					.add(shrinkingLinesOf(letter))
+					.add(shortestLineOf(letter));
+		}
 	}
 
 	public static Diamond of(final Letter letter) {
@@ -30,7 +36,17 @@ public class Diamond {
 
 	@Override
 	public String toString() {
-		return model.asText();
+		String asText = model.asText();
+		System.out.println(asText);
+		return asText;
+	}
+
+	private boolean containsOnly(char letter) {
+		return alphabet().indexOf(letter) == 0;
+	}
+
+	private Lines shrinkingLinesOf(char letter) {
+		return growingLinesOf(letter).reverse();
 	}
 
 	private Line shortestLineOf(char character) {

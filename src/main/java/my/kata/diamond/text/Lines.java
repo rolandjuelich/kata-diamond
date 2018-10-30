@@ -55,4 +55,8 @@ public class Lines {
 		return new Lines(values).add(new Lines(asList(line.value())));
 	}
 
+	public static Lines of(final Line line) {
+		return new Lines(asList(line.value()));
+	}
+
 }
