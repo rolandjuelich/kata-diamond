@@ -47,4 +47,8 @@ public class Alphabet {
 
 	}
 
+	public Object value() {
+		return null;
+	}
+
 }

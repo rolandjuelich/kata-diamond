@@ -26,12 +26,16 @@ public class AlphabetTest {
 	public void shouldNotCreateLetterIfNotInAlphabet() {
 		// given
 		final Alphabet alphabet = Alphabet.of("A");
+		final char character = 'B';
 
 		// when
-		final Throwable exception = catchThrowable(() -> alphabet.letter('B'));
+		final Throwable exception = catchThrowable(() -> {
+			alphabet.letter(character);
+		});
 
 		// then
-		assertThat(exception).isInstanceOf(IllegalArgumentException.class);
+		assertThat(exception).isInstanceOf(IllegalArgumentException.class).hasMessage("'%s' is not in alphabet of '%s'",
+				character, alphabet.value());
 	}
 
 }
