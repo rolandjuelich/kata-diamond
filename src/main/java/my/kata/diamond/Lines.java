@@ -11,20 +11,19 @@ public class Lines {
 		this.values.addAll(values);
 	}
 
-	public static Lines empty() {
-		return new Lines(new ArrayList<String>());
-	}
-	
 	public static Lines of(final List<String> lines) {
 		return new Lines(lines);
 	}
 
 	public Lines add(final Lines lines) {
-		return Lines.of(lines.values());
+		final List<String> newLines = new ArrayList<String>();
+		newLines.addAll(values);
+		newLines.addAll(lines.values());
+		return Lines.of(newLines);
 	}
 
 	public List<String> values() {
-		return this.values;
+		return new ArrayList<>(this.values);
 	}
 
 }

@@ -15,22 +15,15 @@ public class Diamond {
 
 	private final Alphabet alphabet = Alphabet.of("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 
-	private final Lines upperHalf = Lines.empty();
+	private final Lines upperHalf;
 
 	private Diamond(char letter) {
 		List<String> firstLine = firstLineFor(letter);
 		List<String> innerLines = innerLinesFor(letter);
 		List<String> lastLine = lastLineFor(letter);
 
-		upperHalf.add(Lines.of(firstLine));
-		upperHalf.add(Lines.of(innerLines));
-		upperHalf.add(Lines.of(lastLine));
-		
-		lines().addAll(firstLine);
-		lines().addAll(innerLines);
-		lines().addAll(lastLine);
-		
-		
+		upperHalf = Lines.of(Lines.of(firstLine).add(Lines.of(innerLines).add(Lines.of(lastLine))).values());
+
 	}
 
 	public static Diamond of(char letter) {
