@@ -15,7 +15,7 @@ import com.google.common.collect.Lists;
 public class Diamond {
 
 	private final static String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	
+
 	private final Alphabet alphabet = new Alphabet(ALPHABET);
 
 	private final List<String> lines = new ArrayList<>();
@@ -59,8 +59,8 @@ public class Diamond {
 		return innerLines;
 	}
 
-	private String letter(int alphabetIndex) {
-		return valueOf(alphabet.characterAt(alphabetIndex));
+	private String letter(int index) {
+		return valueOf(alphabet.characterAt(index));
 	}
 
 	private List<String> lastLineFor(char character) {
@@ -77,7 +77,7 @@ public class Diamond {
 	}
 
 	private int indexOf(char character) {
-		return ALPHABET.indexOf(character);
+		return alphabet.indexOf(character);
 	}
 
 }
