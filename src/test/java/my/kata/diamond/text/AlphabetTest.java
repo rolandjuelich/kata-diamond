@@ -38,9 +38,7 @@ public class AlphabetTest {
 			final char invalid = example;
 
 			// when
-			final Throwable exception = catchThrowable(() -> {
-				alphabet.letter(invalid);
-			});
+			final Throwable exception = catchThrowable(() -> alphabet.letter(invalid));
 
 			// then
 			assertThat(exception).isInstanceOf(IllegalArgumentException.class).hasMessage(
