@@ -40,44 +40,36 @@ public class Diamond {
 	}
 
 	private List<String> firstLineFor(char character) {
-		final String letter = letter(0);
-		final String outerSpaces = space(indexOf(character));
+		final String letter = valueOf(alphabet.characterAt(0));
+		final String outerSpaces = space(alphabet.indexOf(character));
 		return asList(join(outerSpaces, letter, outerSpaces));
 	}
 
 	private List<String> innerLinesFor(char character) {
-		if (indexOf(character) < 2) {
+		if (alphabet.indexOf(character) < 2) {
 			return emptyList();
 		}
 		final List<String> innerLines = new ArrayList<>();
-		for (int i = 1; i < indexOf(character); i++) {
-			final String letter = letter(i);
-			final String outerSpaces = space(indexOf(character) - i);
+		for (int i = 1; i < alphabet.indexOf(character); i++) {
+			final String letter = valueOf(alphabet.characterAt(i));
+			final String outerSpaces = space(alphabet.indexOf(character) - i);
 			final String innerSpaces = space(2 * i - 1);
 			innerLines.add(join(outerSpaces, letter, innerSpaces, letter, outerSpaces));
 		}
 		return innerLines;
 	}
 
-	private String letter(int index) {
-		return valueOf(alphabet.characterAt(index));
-	}
-
 	private List<String> lastLineFor(char character) {
-		if (indexOf(character) < 1) {
+		if (alphabet.indexOf(character) < 1) {
 			return emptyList();
 		}
 		final String letter = valueOf(character);
-		final String innerSpaces = space(indexOf(character) + indexOf(character) - 1);
+		final String innerSpaces = space(alphabet.indexOf(character) + alphabet.indexOf(character) - 1);
 		return asList(join(letter, innerSpaces, letter));
 	}
 
 	private String space(int times) {
 		return repeat(SPACE, times);
-	}
-
-	private int indexOf(char character) {
-		return alphabet.indexOf(character);
 	}
 
 }
