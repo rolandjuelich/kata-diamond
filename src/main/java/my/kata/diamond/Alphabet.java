@@ -12,4 +12,8 @@ public class Alphabet {
 		return value.charAt(index);
 	}
 
+	public int indexOf(char character) {
+		return value.indexOf(character);
+	}
+
 }
