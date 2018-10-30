@@ -18,11 +18,7 @@ public class Diamond {
 	private final Lines upperHalf;
 
 	private Diamond(char letter) {
-		Lines firstLine = firstLineFor(letter);
-		Lines innerLines = innerLinesFor(letter);
-		Lines lastLine = lastLineFor(letter);
-
-		upperHalf = Lines.of(firstLine.add(innerLines.add(lastLine)).values());
+		upperHalf = firstLineFor(letter).add(innerLinesFor(letter).add(lastLineFor(letter)));
 
 	}
 
