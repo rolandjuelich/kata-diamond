@@ -28,12 +28,20 @@ public class Alphabet {
 	}
 
 	public Letter letter(char c) {
-		return new Letter();
+		return new Letter(c);
 	}
-	
-	public class Letter {
 
-		
+	public class Letter {
+		private char value;
+
+		private Letter(char character) {
+			this.value = character;
+		}
+
+		public char value() {
+			return value;
+		}
+
 	}
 
 }
