@@ -1,6 +1,7 @@
 package my.kata.diamond.text;
 
 import static my.kata.diamond.text.AlphabetTest.InvalidCharacters.charactersNotIn;
+import static org.apache.commons.lang3.RandomStringUtils.randomAlphanumeric;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.catchThrowable;
 
@@ -30,12 +31,11 @@ public class AlphabetTest {
 	@Test
 	public void shouldNotCreateLetterIfNotInAlphabet() {
 		// assume
-		final Alphabet alphabet = Alphabet.of("A");
-		final List<Character> invalid = charactersNotIn(alphabet).examples(100);
+		final Alphabet alphabet = Alphabet.of(randomAlphanumeric(10));
 
-		for (Character invalidCharacter : invalid) {
+		charactersNotIn(alphabet).examples(50).forEach(example -> {
 			// given
-			final char character = invalidCharacter;
+			final char character = example;
 
 			// when
 			final Throwable exception = catchThrowable(() -> {
@@ -46,13 +46,14 @@ public class AlphabetTest {
 			assertThat(exception).isInstanceOf(IllegalArgumentException.class).hasMessage(
 					"'%s' is not in alphabet of '%s'",
 					character, alphabet.characters());
-		}
+
+		});
 
 	}
 
 	static class InvalidCharacters {
 
-		private Alphabet alphabet;
+		private final Alphabet alphabet;
 
 		private InvalidCharacters(final Alphabet alphabet) {
 			this.alphabet = alphabet;
