@@ -27,4 +27,8 @@ public class Alphabet {
 		return characters.indexOf(character);
 	}
 
+	public Letter letter(char c) {
+		return new Letter();
+	}
+
 }
