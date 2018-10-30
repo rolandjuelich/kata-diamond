@@ -15,8 +15,6 @@ public class Diamond {
 
 	private final Alphabet alphabet = Alphabet.of("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 
-	private final List<String> lines = new ArrayList<>();
-	
 	private final Lines upperHalf = Lines.empty();
 
 	private Diamond(char letter) {
