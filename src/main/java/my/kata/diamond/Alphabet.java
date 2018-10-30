@@ -16,4 +16,8 @@ public class Alphabet {
 		return value.indexOf(character);
 	}
 
+	public static Alphabet of(final String characters) {
+		return new Alphabet(characters);
+	}
+
 }
