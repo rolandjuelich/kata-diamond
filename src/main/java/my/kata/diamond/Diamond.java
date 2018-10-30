@@ -30,7 +30,7 @@ public class Diamond {
 	private Lines firstLineFor(char character) {
 		final String letter = valueOf(alphabet.characterAt(0));
 		final String outerSpaces = space(alphabet.indexOf(character));
-		return Lines.of(asList(join(outerSpaces, letter, outerSpaces)));
+		return Line.of(outerSpaces, letter, outerSpaces);
 	}
 
 	private Lines innerLinesFor(char character) {
