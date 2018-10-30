@@ -15,7 +15,7 @@ public class Diamond {
 
 	private Diamond(char letter) {
 		final Lines topTriangle = shortestLineOf(letter).add(growingLinesOf(letter).add(widestLineOf(letter)));
-		final Lines bottomTriangle = topTriangle.reverse().startingFromIndex(1);
+		final Lines bottomTriangle = topTriangle.reverse().startingFromLine(2);
 		this.model = topTriangle.add(bottomTriangle);
 	}
 

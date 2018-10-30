@@ -40,8 +40,8 @@ public class Lines {
 		return join(values, '\n');
 	}
 
-	public Lines startingFromIndex(int index) {
-		return new Lines(this.values().subList(index, this.values().size()));
+	public Lines startingFromLine(int line) {
+		return new Lines(this.values().subList(line - 1, this.values().size()));
 	}
 
 	public Lines reverse() {
@@ -49,7 +49,7 @@ public class Lines {
 	}
 
 	public Lines add(final Line line) {
-		if(Line.none().equals(line)) {
+		if (Line.none().equals(line)) {
 			return new Lines(values);
 		}
 		return new Lines(values).add(new Lines(asList(line.value())));
