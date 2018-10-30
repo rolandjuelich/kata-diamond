@@ -2,10 +2,6 @@ package my.kata.diamond;
 
 import static java.lang.String.valueOf;
 import static my.kata.diamond.Alphabet.space;
-import static org.apache.commons.lang3.StringUtils.join;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Diamond {
 
@@ -36,14 +32,14 @@ public class Diamond {
 		if (alphabet.indexOf(character) < 2) {
 			return Lines.empty();
 		}
-		final List<String> lines = new ArrayList<>();
+		Lines lines = Lines.empty();
 		for (int i = 1; i < alphabet.indexOf(character); i++) {
 			final String letter = valueOf(alphabet.characterAt(i));
 			final String outerSpaces = space(alphabet.indexOf(character) - i);
 			final String innerSpaces = space(2 * i - 1);
-			lines.add(join(outerSpaces, letter, innerSpaces, letter, outerSpaces));
+			lines = lines.add(Line.of(outerSpaces, letter, innerSpaces, letter, outerSpaces));
 		}
-		return Lines.of(lines);
+		return lines;
 	}
 
 	private Line lastLineFor(char character) {
