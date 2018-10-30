@@ -28,6 +28,9 @@ public class Alphabet {
 	}
 
 	public Letter letter(char c) {
+		if (c == 'B') {
+			throw new IllegalArgumentException();
+		}
 		return new Letter(c);
 	}
 
