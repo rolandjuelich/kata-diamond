@@ -37,5 +37,9 @@ public class Lines {
 		return join(values, '\n');
 	}
 
+	public Lines startingFrom(final List<String> list, int index) {
+		return Lines.of(list.subList(index, list.size()));
+	}
+
 
 }
