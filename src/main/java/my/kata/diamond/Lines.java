@@ -12,4 +12,8 @@ public class Lines {
 		return null;
 	}
 
+	public static Lines empty() {
+		return new Lines();
+	}
+
 }
