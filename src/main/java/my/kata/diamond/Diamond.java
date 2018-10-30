@@ -60,7 +60,7 @@ public class Diamond {
 	}
 
 	private String letter(int alphabetIndex) {
-		return valueOf(ALPHABET.charAt(alphabetIndex));
+		return valueOf(alphabet.characterAt(alphabetIndex));
 	}
 
 	private List<String> lastLineFor(char character) {

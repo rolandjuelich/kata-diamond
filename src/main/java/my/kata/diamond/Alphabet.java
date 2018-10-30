@@ -8,4 +8,9 @@ public class Alphabet {
 		this.value = value;
 	}
 
+	public char[] characterAt(int index) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
