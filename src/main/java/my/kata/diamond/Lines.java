@@ -1,6 +1,7 @@
 package my.kata.diamond;
 
 import static java.util.Collections.emptyList;
+import static org.apache.commons.lang3.StringUtils.join;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +31,10 @@ public class Lines {
 
 	public List<String> values() {
 		return new ArrayList<>(this.values);
+	}
+
+	public String asText() {
+		return join(values, '\n');
 	}
 
 
