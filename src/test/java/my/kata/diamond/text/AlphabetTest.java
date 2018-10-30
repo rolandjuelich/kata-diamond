@@ -1,6 +1,7 @@
 package my.kata.diamond.text;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.catchThrowable;
 
 import org.junit.Test;
 
@@ -21,9 +22,16 @@ public class AlphabetTest {
 		assertThat(letter.value()).isEqualTo('A');
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void shouldNotCreateLetterIfNotInAlphabet() {
-		Alphabet.of("A").letter('B');
+		// given
+		final Alphabet alphabet = Alphabet.of("A");
+
+		// when
+		final Throwable exception = catchThrowable(() -> alphabet.letter('B'));
+
+		// then
+		assertThat(exception).isInstanceOf(IllegalArgumentException.class);
 	}
 
 }
