@@ -35,7 +35,7 @@ public class AlphabetTest {
 
 		// then
 		assertThat(exception).isInstanceOf(IllegalArgumentException.class).hasMessage("'%s' is not in alphabet of '%s'",
-				character, alphabet.value());
+				character, alphabet.characters());
 	}
 
 }

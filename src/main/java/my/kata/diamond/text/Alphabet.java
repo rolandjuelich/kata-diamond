@@ -27,11 +27,11 @@ public class Alphabet {
 		return characters.indexOf(character);
 	}
 
-	public Letter letter(char c) {
-		if (c == 'B') {
-			throw new IllegalArgumentException();
+	public Letter letter(char character) {
+		if (character == 'B') {
+			throw new IllegalArgumentException(String.format("'%s' is not in alphabet of '%s'", character, characters));
 		}
-		return new Letter(c);
+		return new Letter(character);
 	}
 
 	public class Letter {
@@ -47,8 +47,8 @@ public class Alphabet {
 
 	}
 
-	public Object value() {
-		return null;
+	public String characters() {
+		return characters;
 	}
 
 }
