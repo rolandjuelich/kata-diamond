@@ -16,7 +16,7 @@ public class Diamond {
 
 	private final static String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-	private final Alphabet alphabet = new Alphabet(ALPHABET);
+	private final Alphabet alphabet = Alphabet.of(ALPHABET);
 
 	private final List<String> lines = new ArrayList<>();
 
