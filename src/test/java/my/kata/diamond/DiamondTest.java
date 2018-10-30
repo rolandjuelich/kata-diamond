@@ -42,7 +42,7 @@ public class DiamondTest {
 	}
 
 	private String diamondFor(char letter) {
-		return Diamond.of(letter).toString();
+		return Diamond.of(Diamond.alphabet().letter(letter)).toString();
 	}
 
 }
