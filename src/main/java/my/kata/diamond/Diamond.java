@@ -36,9 +36,7 @@ public class Diamond {
 
 	@Override
 	public String toString() {
-		String asText = model.asText();
-		System.out.println(asText);
-		return asText;
+		return model.asText();
 	}
 
 	private boolean containsOnly(char letter) {
