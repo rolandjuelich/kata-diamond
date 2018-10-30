@@ -1,4 +1,4 @@
-package my.kata.text;
+package my.kata.diamond.text;
 
 import static java.util.Arrays.asList;
 import static org.apache.commons.lang3.StringUtils.join;

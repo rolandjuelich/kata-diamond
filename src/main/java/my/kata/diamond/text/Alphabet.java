@@ -1,4 +1,4 @@
-package my.kata.text;
+package my.kata.diamond.text;
 
 import static org.apache.commons.lang3.StringUtils.SPACE;
 import static org.apache.commons.lang3.StringUtils.repeat;

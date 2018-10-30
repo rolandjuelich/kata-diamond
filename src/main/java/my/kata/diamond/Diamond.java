@@ -1,11 +1,11 @@
 package my.kata.diamond;
 
 import static java.lang.String.valueOf;
-import static my.kata.text.Alphabet.space;
+import static my.kata.diamond.text.Alphabet.space;
 
-import my.kata.text.Alphabet;
-import my.kata.text.Line;
-import my.kata.text.Lines;
+import my.kata.diamond.text.Alphabet;
+import my.kata.diamond.text.Line;
+import my.kata.diamond.text.Lines;
 
 public class Diamond {
 
