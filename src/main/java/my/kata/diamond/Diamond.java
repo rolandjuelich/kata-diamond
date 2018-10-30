@@ -8,8 +8,6 @@ import static org.apache.commons.lang3.StringUtils.join;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.google.common.collect.Lists;
-
 public class Diamond {
 
 	private final Alphabet alphabet = Alphabet.of("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
@@ -26,13 +24,7 @@ public class Diamond {
 
 	@Override
 	public String toString() {
-		final Lines reverse = reverse();
-		Lines fromIndex = upperHalf.startingFrom(reverse.values(), 1);
-		return upperHalf.add(fromIndex).asText();
-	}
-
-	private Lines reverse() {
-		return Lines.of(Lists.reverse(upperHalf.values()));
+		return upperHalf.add(upperHalf.reverse().startingFromIndex(1)).asText();
 	}
 
 	private Lines firstLineFor(char character) {

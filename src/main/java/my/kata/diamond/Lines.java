@@ -6,6 +6,8 @@ import static org.apache.commons.lang3.StringUtils.join;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.common.collect.Lists;
+
 public class Lines {
 
 	private final List<String> values = new ArrayList<String>();
@@ -26,7 +28,7 @@ public class Lines {
 		final List<String> newLines = new ArrayList<String>();
 		newLines.addAll(values);
 		newLines.addAll(lines.values());
-		return Lines.of(newLines);
+		return new Lines(newLines);
 	}
 
 	public List<String> values() {
@@ -37,9 +39,12 @@ public class Lines {
 		return join(values, '\n');
 	}
 
-	public Lines startingFrom(final List<String> list, int index) {
-		return Lines.of(list.subList(index, list.size()));
+	public Lines startingFromIndex(int index) {
+		return new Lines(this.values().subList(index, this.values().size()));
 	}
 
+	public Lines reverse() {
+		return new Lines(Lists.reverse(values()));
+	}
 
 }
