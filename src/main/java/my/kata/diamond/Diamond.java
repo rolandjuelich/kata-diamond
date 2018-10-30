@@ -18,11 +18,11 @@ public class Diamond {
 		if (containsOnly(letter)) {
 			this.model = Lines.of(shortestLineOf(letter));
 		} else {
-			this.model = shortestLineOf(letter)
-					.add(growingLinesOf(letter))
-					.add(widestLineOf(letter))
-					.add(shrinkingLinesOf(letter))
-					.add(shortestLineOf(letter));
+			final Line shortest = shortestLineOf(letter);
+			final Lines growing = growingLinesOf(letter);
+			final Line widest = widestLineOf(letter);
+			final Lines shrinking = growing.reverse();
+			this.model = shortest.add(growing).add(widest).add(shrinking).add(shortest);
 		}
 	}
 
@@ -41,10 +41,6 @@ public class Diamond {
 
 	private boolean containsOnly(char letter) {
 		return alphabet().indexOf(letter) == 0;
-	}
-
-	private Lines shrinkingLinesOf(char letter) {
-		return growingLinesOf(letter).reverse();
 	}
 
 	private Line shortestLineOf(char character) {
