@@ -26,9 +26,13 @@ public class Diamond {
 
 	@Override
 	public String toString() {
-		final List<String> reverse = Lists.reverse(upperHalf.values());
-		Lines fromIndex = upperHalf.startingFrom(reverse, 1);
+		final Lines reverse = reverse();
+		Lines fromIndex = upperHalf.startingFrom(reverse.values(), 1);
 		return upperHalf.add(fromIndex).asText();
+	}
+
+	private Lines reverse() {
+		return Lines.of(Lists.reverse(upperHalf.values()));
 	}
 
 	private Lines firstLineFor(char character) {
