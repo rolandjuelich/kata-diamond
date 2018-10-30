@@ -3,6 +3,9 @@ package my.kata.diamond.text;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.catchThrowable;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.Test;
 
 import my.kata.diamond.text.Alphabet.Letter;
@@ -24,18 +27,25 @@ public class AlphabetTest {
 
 	@Test
 	public void shouldNotCreateLetterIfNotInAlphabet() {
-		// given
+		// assume
 		final Alphabet alphabet = Alphabet.of("A");
-		final char character = 'B';
+		final List<Character> invalid = Arrays.asList('B');
 
-		// when
-		final Throwable exception = catchThrowable(() -> {
-			alphabet.letter(character);
-		});
+		for (Character invalidCharacter : invalid) {
+			// given
+			final char character = invalidCharacter;
 
-		// then
-		assertThat(exception).isInstanceOf(IllegalArgumentException.class).hasMessage("'%s' is not in alphabet of '%s'",
-				character, alphabet.characters());
+			// when
+			final Throwable exception = catchThrowable(() -> {
+				alphabet.letter(character);
+			});
+
+			// then
+			assertThat(exception).isInstanceOf(IllegalArgumentException.class).hasMessage(
+					"'%s' is not in alphabet of '%s'",
+					character, alphabet.characters());
+		}
+
 	}
 
 }
