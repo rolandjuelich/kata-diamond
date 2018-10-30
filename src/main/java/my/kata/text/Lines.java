@@ -1,4 +1,4 @@
-package my.kata.diamond;
+package my.kata.text;
 
 import static java.util.Arrays.asList;
 import static java.util.Collections.emptyList;
