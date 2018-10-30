@@ -1,5 +1,6 @@
 package my.kata.diamond.text;
 
+import static my.kata.diamond.text.AlphabetTest.InvalidCharacters.charactersNotIn;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.catchThrowable;
 
@@ -30,7 +31,7 @@ public class AlphabetTest {
 	public void shouldNotCreateLetterIfNotInAlphabet() {
 		// assume
 		final Alphabet alphabet = Alphabet.of("A");
-		final List<Character> invalid = invalidCharacterExamplesFor(alphabet);
+		final List<Character> invalid = charactersNotIn(alphabet).examples(100);
 
 		for (Character invalidCharacter : invalid) {
 			// given
@@ -49,20 +50,33 @@ public class AlphabetTest {
 
 	}
 
-	private List<Character> invalidCharacterExamplesFor(final Alphabet alphabet) {
-		final List<Character> exapmles = new ArrayList<>();
-		for(int i=0; i<100; i++) {
-			exapmles.add(someCharacterNotIn(alphabet));
-		}
-		return exapmles;
-	}
+	static class InvalidCharacters {
 
-	private static char someCharacterNotIn(final Alphabet alphabet) {
-		String someChar;
-		do {
-			someChar = RandomStringUtils.randomAlphanumeric(1);
-		} while (alphabet.characters().contains(someChar));
-		return someChar.charAt(0);
+		private Alphabet alphabet;
+
+		private InvalidCharacters(final Alphabet alphabet) {
+			this.alphabet = alphabet;
+		}
+
+		static InvalidCharacters charactersNotIn(final Alphabet alphabet) {
+			return new InvalidCharacters(alphabet);
+		}
+
+		public List<Character> examples(int count) {
+			final List<Character> examples = new ArrayList<>();
+			for (int i = 0; i < count; i++) {
+				examples.add(someCharacterNotIn(alphabet));
+			}
+			return examples;
+		}
+
+		private char someCharacterNotIn(final Alphabet alphabet) {
+			String someChar;
+			do {
+				someChar = RandomStringUtils.randomAlphanumeric(1);
+			} while (alphabet.characters().contains(someChar));
+			return someChar.charAt(0);
+		}
 	}
 
 }
