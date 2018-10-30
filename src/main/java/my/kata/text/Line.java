@@ -1,8 +1,7 @@
 package my.kata.text;
 
 import static java.util.Arrays.asList;
-
-import org.apache.commons.lang3.StringUtils;
+import static org.apache.commons.lang3.StringUtils.join;
 
 public class Line {
 
@@ -19,7 +18,7 @@ public class Line {
 	}
 
 	public static Line of(final String... values) {
-		return new Line(StringUtils.join(values));
+		return new Line(join(values));
 	}
 
 	public Lines add(final Lines lines) {
