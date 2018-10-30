@@ -28,9 +28,9 @@ public class Diamond {
 		upperHalf.add(Lines.of(innerLines));
 		upperHalf.add(Lines.of(lastLine));
 		
-		lines.addAll(firstLine);
-		lines.addAll(innerLines);
-		lines.addAll(lastLine);
+		lines().addAll(firstLine);
+		lines().addAll(innerLines);
+		lines().addAll(lastLine);
 		
 		
 	}
@@ -41,11 +41,15 @@ public class Diamond {
 
 	@Override
 	public String toString() {
-		final List<String> reverse = Lists.reverse(lines);
+		final List<String> reverse = Lists.reverse(lines());
 		final List<String> allLines = new ArrayList<>();
-		allLines.addAll(lines);
+		allLines.addAll(lines());
 		allLines.addAll(reverse.subList(1, reverse.size()));
 		return join(allLines, '\n');
+	}
+
+	private List<String> lines() {
+		return upperHalf.values();
 	}
 
 	private List<String> firstLineFor(char character) {
