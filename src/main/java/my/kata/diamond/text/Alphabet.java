@@ -1,5 +1,6 @@
 package my.kata.diamond.text;
 
+import static com.google.common.collect.Lists.charactersOf;
 import static org.apache.commons.lang3.StringUtils.SPACE;
 import static org.apache.commons.lang3.StringUtils.repeat;
 
@@ -28,7 +29,7 @@ public class Alphabet {
 	}
 
 	public Letter letter(char character) {
-		if (character == 'B' || character == 'C' || character == 'D') {
+		if (!charactersOf(characters).contains(character)) {
 			throw new IllegalArgumentException(String.format("'%s' is not in alphabet of '%s'", character, characters));
 		}
 		return new Letter(character);
