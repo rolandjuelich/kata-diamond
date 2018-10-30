@@ -3,7 +3,7 @@ package my.kata.diamond.text;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.catchThrowable;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang3.RandomStringUtils;
@@ -30,7 +30,7 @@ public class AlphabetTest {
 	public void shouldNotCreateLetterIfNotInAlphabet() {
 		// assume
 		final Alphabet alphabet = Alphabet.of("A");
-		final List<Character> invalid = Arrays.asList(someCharacterNotIn(alphabet), 'C', 'D');
+		final List<Character> invalid = invalidCharacterExamplesFor(alphabet);
 
 		for (Character invalidCharacter : invalid) {
 			// given
@@ -47,6 +47,14 @@ public class AlphabetTest {
 					character, alphabet.characters());
 		}
 
+	}
+
+	private List<Character> invalidCharacterExamplesFor(final Alphabet alphabet) {
+		final List<Character> exapmles = new ArrayList<>();
+		for(int i=0; i<100; i++) {
+			exapmles.add(someCharacterNotIn(alphabet));
+		}
+		return exapmles;
 	}
 
 	private static char someCharacterNotIn(final Alphabet alphabet) {
