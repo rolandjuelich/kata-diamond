@@ -12,3 +12,6 @@ For example: print-diamond ‘C’ prints
 	C   C
 	 B B
 	  A
+
+# Solution
+You can find my solution [here](src/main/java/my/kata/diamond/Diamond.java)
