@@ -30,5 +30,9 @@ public class Alphabet {
 	public Letter letter(char c) {
 		return new Letter();
 	}
+	
+	public class Letter {
+		
+	}
 
 }
