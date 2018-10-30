@@ -8,7 +8,7 @@ public class Lines {
 		
 	}
 
-	public static List<String> of(final List<String> firstLine) {
+	public static Lines of(final List<String> firstLine) {
 		return null;
 	}
 
