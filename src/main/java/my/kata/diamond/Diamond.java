@@ -2,7 +2,6 @@ package my.kata.diamond;
 
 import static java.lang.String.valueOf;
 import static java.util.Arrays.asList;
-import static java.util.Collections.emptyList;
 import static my.kata.diamond.Alphabet.space;
 import static org.apache.commons.lang3.StringUtils.join;
 
@@ -19,7 +18,6 @@ public class Diamond {
 
 	private Diamond(char letter) {
 		upperHalf = firstLineFor(letter).add(innerLinesFor(letter).add(lastLineFor(letter)));
-
 	}
 
 	public static Diamond of(char letter) {
@@ -32,7 +30,7 @@ public class Diamond {
 		final List<String> allLines = new ArrayList<>();
 		allLines.addAll(upperHalf.values());
 		allLines.addAll(reverse.subList(1, reverse.size()));
-		return join(allLines, '\n');
+		return Lines.of(allLines).asText();
 	}
 
 	private Lines firstLineFor(char character) {
