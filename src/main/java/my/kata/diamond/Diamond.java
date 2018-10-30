@@ -54,9 +54,6 @@ public class Diamond {
 	}
 
 	private Lines growingLinesOf(char character) {
-		if (alphabet().indexOf(character) < 2) {
-			return Lines.empty();
-		}
 		Lines lines = Lines.empty();
 		for (int i = 1; i < alphabet().indexOf(character); i++) {
 			final String letter = valueOf(alphabet().characterAt(i));
@@ -68,9 +65,6 @@ public class Diamond {
 	}
 
 	private Line widestLineOf(char character) {
-		if (alphabet().indexOf(character) < 1) {
-			return Line.none();
-		}
 		final String letter = valueOf(character);
 		final String innerSpaces = space(2 * alphabet().indexOf(character) - 1);
 		return Line.of(letter, innerSpaces, letter);
