@@ -31,6 +31,9 @@ public class Alphabet {
 		if (character == 'B') {
 			throw new IllegalArgumentException(String.format("'%s' is not in alphabet of '%s'", character, characters));
 		}
+		if (character == 'C') {
+			throw new IllegalArgumentException(String.format("'%s' is not in alphabet of '%s'", character, characters));
+		}
 		return new Letter(character);
 	}
 
