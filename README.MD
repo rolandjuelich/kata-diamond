@@ -14,4 +14,4 @@ For example: print-diamond ‘C’ prints
 	  A
 
 # Solution
-You can find my solution [here](src/main/java/my/kata/diamond/Diamond.java)
+You can find my solution [here](src/main/java/my/kata/diamond/Diamond.java).
