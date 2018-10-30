@@ -63,13 +63,13 @@ public class Diamond {
 		return Lines.of(lines);
 	}
 
-	private List<String> lastLineFor(char character) {
+	private Lines lastLineFor(char character) {
 		if (alphabet.indexOf(character) < 1) {
-			return emptyList();
+			return Lines.empty();
 		}
 		final String letter = valueOf(character);
 		final String innerSpaces = space(alphabet.indexOf(character) + alphabet.indexOf(character) - 1);
-		return asList(join(letter, innerSpaces, letter));
+		return Lines.of(asList(join(letter, innerSpaces, letter)));
 	}
 
 }
