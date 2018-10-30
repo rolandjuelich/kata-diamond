@@ -20,9 +20,9 @@ public class Diamond {
 	private Diamond(char letter) {
 		Lines firstLine = firstLineFor(letter);
 		Lines innerLines = innerLinesFor(letter);
-		List<String> lastLine = lastLineFor(letter);
+		Lines lastLine = lastLineFor(letter);
 
-		upperHalf = Lines.of(firstLine.add(innerLines.add(Lines.of(lastLine))).values());
+		upperHalf = Lines.of(firstLine.add(innerLines.add(lastLine)).values());
 
 	}
 
