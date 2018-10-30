@@ -51,7 +51,7 @@ public class Diamond {
 			return Line.none();
 		}
 		final String letter = valueOf(character);
-		final String innerSpaces = space(alphabet.indexOf(character) + alphabet.indexOf(character) - 1);
+		final String innerSpaces = space(2 * alphabet.indexOf(character) - 1);
 		return Line.of(letter, innerSpaces, letter);
 	}
 
