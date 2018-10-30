@@ -16,11 +16,21 @@ public class Diamond {
 	private final Alphabet alphabet = Alphabet.of("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 
 	private final List<String> lines = new ArrayList<>();
+	
+	private final Lines upperHalf = new Lines();
 
 	private Diamond(char letter) {
-		lines.addAll(firstLineFor(letter));
-		lines.addAll(innerLinesFor(letter));
-		lines.addAll(lastLineFor(letter));
+		List<String> firstLine = firstLineFor(letter);
+		List<String> innerLines = innerLinesFor(letter);
+		List<String> lastLine = lastLineFor(letter);
+
+		upperHalf.add(firstLine);
+		
+		lines.addAll(firstLine);
+		lines.addAll(innerLines);
+		lines.addAll(lastLine);
+		
+		
 	}
 
 	public static Diamond of(char letter) {
