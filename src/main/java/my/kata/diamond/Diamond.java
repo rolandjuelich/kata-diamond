@@ -15,6 +15,8 @@ import com.google.common.collect.Lists;
 public class Diamond {
 
 	private final static String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	
+	private final Alphabet alphabet = new Alphabet(ALPHABET);
 
 	private final List<String> lines = new ArrayList<>();
 
